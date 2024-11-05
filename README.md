@@ -77,19 +77,8 @@ FEATURED
 
 * [Blog Post](link)
 
+Owner (ndumbemoses@gmail.com) : [Moses N Ndumbe]
 
-## Contributing DSWG Members
+Team Leads (portia.bentum@azubiafrica.org) : [Ms.Portia Bentum]
 
-**Team Leads (Contacts) : [Full Name](https://github.com/[github handle])(@slackHandle)**
 
-#### Other Members:
-
-|Name     |  Slack Handle   | 
-|---------|-----------------|
-|[Full Name](https://github.com/[github handle])| @johnDoe        |
-|[Full Name](https://github.com/[github handle]) |     @janeDoe    |
-
-## Contact
-* If you haven't joined the SF Brigade Slack, [you can do that here](http://c4sf.me/slack).  
-* Our slack channel is `#datasci-projectname`
-* Feel free to contact team leads with any questions or if you are interested in contributing!
