@@ -122,10 +122,11 @@ The year 2021 saw the highest total funding amount, exceeding 4 billion dollars.
 
 FEATURED
 
-* [Blog Post]([https://dev.to/ndumbe0/my-first-data-analysis-project-4hm3])
+* [Blog Post](https://dev.to/ndumbe0/my-first-data-analysis-project-4hm3)
 
 Owner (ndumbemoses@gmail.com) : [Moses N Ndumbe]
 
 Team Leads (portia.bentum@azubiafrica.org) : [Ms.Portia Bentum]
+
 
 
