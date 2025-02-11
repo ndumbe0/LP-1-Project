@@ -1,4 +1,7 @@
-SPRINT PROJECT ON ANALYSIS OF INDIAN STARTUPS TO THE YEAR 2021
+![download 2](https://github.com/user-attachments/assets/1db94cc0-902c-4004-9ead-776d6fe10830)
+
+
+## SPRINT PROJECT ON ANALYSIS OF INDIAN STARTUPS TO THE YEAR 2021
 
 This project is a part of the [Data Science Cohort 7  Group](https://www.azubiafrica.org/data-analytics) at(https://www.azubiafrica.org/data-analytics)
 
@@ -13,9 +16,14 @@ The purpose of this project is to first firmiliarise myself with analytical skil
   
 
  Technologies
-* Python
-* Pandas, jupyter
-* Power BI
+* Python ![image](https://github.com/user-attachments/assets/32c336bb-671a-444c-b3f3-902ef610bd46)
+
+* Pandas, ![image](https://github.com/user-attachments/assets/4e4f481f-e4b1-4660-a567-896c6272f6c2)
+
+* jupyter ![image](https://github.com/user-attachments/assets/55309752-0de5-437b-9965-e3182860af59)
+
+* Power BI ![image](https://github.com/user-attachments/assets/0ce5887c-ba4b-4adb-8111-f72d3440260a)
+
   
 
  Project Description
