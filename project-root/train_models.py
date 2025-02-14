@@ -1,4 +1,5 @@
 # train_models.py
+import os
 import joblib
 import pandas as pd
 import numpy as np
@@ -11,8 +12,10 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.impute import SimpleImputer
 from sklearn.model_selection import train_test_split
 
-#  Load and preprocess data for Funding/Success models ---
+# Create models directory if it doesn't exist
+os.makedirs('models', exist_ok=True)
 
+# --- Load and preprocess data for Funding/Success models ---
 file_path = "F:\\school\\Azubi Africa\\LP1 Data Analytics Project\\LP-1-Project\\data\\Aba3_cleaned.csv"
 df = pd.read_csv(file_path)
 
@@ -41,12 +44,14 @@ df['RoundSeries_Numerical'] = df['RoundSeries'].map(round_series_mapping).fillna
 
 # Scale numerical features
 scaler = StandardScaler()
-df[['Founded_scaled', 'RoundSeries_scaled']] = scaler.fit_transform(df[['Founded', 'RoundSeries_Numerical']])
+df[['Founded_scaled', 'RoundSeries_scaled']] = scaler.fit_transform(
+    df[['Founded', 'RoundSeries_Numerical']]
+)
 
 # Split data for Funding/Success models
 feature_columns = ['Founded_scaled', 'RoundSeries_scaled', 'Head_Quarter', 'Industry']
 X = df[feature_columns]
-y_amount = df['Amount']  # Target for Funding model
+y_amount = df['Amount']
 
 # Split into train/test
 X_train, X_test, y_train_amount, y_test_amount = train_test_split(
@@ -69,30 +74,33 @@ X_train_ind, X_test_ind, y_train_ind, y_test_ind = train_test_split(
 )
 
 # --- Model 1: Funding Prediction ---
-# Imputer and model training
+# Save scaler and label encoders
+joblib.dump(scaler, 'models/funding_scaler.joblib')
+joblib.dump(label_encoders, 'models/label_encoders.joblib')
+
+# Create and save funding model
 funding_imputer = SimpleImputer(strategy='median')
 X_train_funding = funding_imputer.fit_transform(X_train)
 rf_model = RandomForestRegressor(n_estimators=100, random_state=42)
 rf_model.fit(X_train_funding, y_train_amount)
 
-# Save artifacts
 joblib.dump(funding_imputer, 'models/funding_imputer.joblib')
 joblib.dump(rf_model, 'models/funding_model.joblib')
 
 # --- Model 2: Startup Success ---
-# Pipeline with imputer, scaler, and classifier
+# Create and save success pipeline
 success_pipeline = Pipeline([
     ('imputer', SimpleImputer(strategy='mean')),
     ('scaler', StandardScaler()),
-    ('classifier', LogisticRegression(random_state=42))
+    ('classifier', LogisticRegression(random_state=42, class_weight='balanced'))
 ])
 success_pipeline.fit(X_train, y_train_success)
 joblib.dump(success_pipeline, 'models/success_pipeline.joblib')
 
 # --- Model 3: Industry Classification ---
-# Pipeline with TF-IDF and classifier
+# Create and save industry pipeline
 industry_pipeline = Pipeline([
-    ('tfidf', TfidfVectorizer(stop_words='english')),
+    ('tfidf', TfidfVectorizer(stop_words='english', max_features=5000)),
     ('classifier', MultinomialNB())
 ])
 industry_pipeline.fit(X_train_ind, y_train_ind)
