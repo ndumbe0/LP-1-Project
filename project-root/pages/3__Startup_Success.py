@@ -3,9 +3,12 @@ import streamlit as st
 import joblib
 import pandas as pd
 import numpy as np
+from pathlib import Path
+
+
 
 # Load pre-trained pipeline
-pipeline = joblib.load('models/success_pipeline.joblib')
+pipeline = joblib.load(Path(__file__).parent.parent / 'models/success_pipeline.joblib')
 
 def preprocess_success_data(df):
     """Replicate preprocessing from notebook"""

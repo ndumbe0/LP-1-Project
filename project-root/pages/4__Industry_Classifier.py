@@ -4,6 +4,7 @@ import joblib
 import pandas as pd
 import spacy
 from sklearn.preprocessing import LabelEncoder
+from pathlib import Path
 
 # Load pre-trained pipeline and components
 pipeline = joblib.load('models/industry_pipeline.joblib')
