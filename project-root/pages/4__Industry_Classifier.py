@@ -3,11 +3,13 @@ import streamlit as st
 import joblib
 import pandas as pd
 import spacy
+import en_core_web_sm
+nlp = en_core_web_sm.load()
 from sklearn.preprocessing import LabelEncoder
 from pathlib import Path
 
 # Load pre-trained pipeline and components
-pipeline = joblib.load('models/industry_pipeline.joblib')
+pipeline = joblib.load(Path(__file__).parent.parent / 'models/industry_pipeline.joblib')
 nlp = spacy.load("en_core_web_sm")
 
 def preprocess_text(text):
