@@ -8,6 +8,8 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
+)
+    
 def main():
     st.sidebar.title("Navigation")
     page = st.sidebar.radio("Go to", [
@@ -18,13 +20,13 @@ def main():
     ])
 
     if page == "Home":
-        st.switch_page("pages/1_🏠_Home.py")
+        st.switch_page("pages/1__Home.py")
     elif page == "Funding Predictor":
-        st.switch_page("pages/2_💰_Funding_Predictor.py")
+        st.switch_page("pages/2__Funding_Predictor.py")
     elif page == "Startup Success":
-        st.switch_page("pages/3_🚀_Startup_Success.py")
+        st.switch_page("pages/3__Startup_Success.py")
     elif page == "Industry Classifier":
-        st.switch_page("pages/4_🏭_Industry_Classifier.py")
+        st.switch_page("pages/4__Industry_Classifier.py")
 
 if __name__ == "__main__":
     main()
