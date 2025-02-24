@@ -1,109 +1,69 @@
-# train_models.py
-import os
-import joblib
 import pandas as pd
-import numpy as np
-from sklearn.pipeline import Pipeline
-from sklearn.ensemble import RandomForestRegressor
-from sklearn.linear_model import LogisticRegression
-from sklearn.naive_bayes import MultinomialNB
-from sklearn.preprocessing import StandardScaler, LabelEncoder
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.impute import SimpleImputer
 from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression  # Example: Linear Regression for Funding Prediction
+from sklearn.ensemble import RandomForestClassifier # Example: RandomForest for Startup Success and Industry Classification
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.pipeline import Pipeline
+import joblib
 
-# Create models directory if it doesn't exist
-os.makedirs('models', exist_ok=True)
+def train_funding_model(training_data_file):
+    """Trains a model to predict funding amount."""
+    df = pd.read_csv(training_data_file)
+    df = df.dropna(subset=['Amount', 'Founded'])
+    X = df[['Founded']]  # Example feature: Founded year
+    y = df['Amount']  # Target variable: Funding Amount
+    X = X.fillna(X.mean()) # Fills any empty values with mean of column
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-# --- Load and preprocess data for Funding/Success models ---
-file_path = "F:\\school\\Azubi Africa\\LP1 Data Analytics Project\\LP-1-Project\\data\\Aba3_cleaned.csv"
-df = pd.read_csv(file_path)
+    model = LinearRegression()  # Or any other regression model
+    model.fit(X_train, y_train)
 
-# Handle missing values
-for col in df.columns:
-    if df[col].dtype in ['float64', 'int64']:
-        df[col] = df[col].fillna(df[col].mean())
-    else:
-        df[col] = df[col].fillna(df[col].mode()[0])
+    joblib.dump(model, 'funding_model.joblib')
+    print("Funding model trained and saved as funding_model.joblib")
 
-# Encode categorical columns
-categorical_cols = ['Head_Quarter', 'Industry']
-label_encoders = {}
-for col in categorical_cols:
-    le = LabelEncoder()
-    df[col] = le.fit_transform(df[col].astype(str))
-    label_encoders[col] = le
+def train_success_model(training_data_file):
+    """Trains a model to predict startup success (example)."""
+    df = pd.read_csv(training_data_file)
+    # Assuming you have a 'Success' column (e.g., 0 or 1)
+    # You'll need to define what constitutes "success" and create this column
+    df['Success'] = (df['Amount'] > df['Amount'].median()).astype(int) # Example: Success if funding is above median
+    df = df.dropna(subset=['Industry', 'Founded', 'Success'])
+    X = df[['Industry', 'Founded']]
+    y = df['Success']
+    X = pd.get_dummies(X, columns=['Industry'], drop_first=True)
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-# Map RoundSeries to numerical labels
-round_series_mapping = {
-    'Pre-seed': 0, 'Seed': 1, 'Pre-series A': 2, 'Series A': 3,
-    'Series B': 4, 'Series C': 5, 'Series D': 6, 'Series E': 7,
-    'Debt': 8, 'Bridge': 9
-}
-df['RoundSeries_Numerical'] = df['RoundSeries'].map(round_series_mapping).fillna(-1)
+    model = RandomForestClassifier(random_state=42)  # Or any other classification model
+    model.fit(X_train, y_train)
 
-# Scale numerical features
-scaler = StandardScaler()
-df[['Founded_scaled', 'RoundSeries_scaled']] = scaler.fit_transform(
-    df[['Founded', 'RoundSeries_Numerical']]
-)
+    joblib.dump(model, 'success_model.joblib')
+    print("Startup success model trained and saved as success_model.joblib")
 
-# Split data for Funding/Success models
-feature_columns = ['Founded_scaled', 'RoundSeries_scaled', 'Head_Quarter', 'Industry']
-X = df[feature_columns]
-y_amount = df['Amount']
+def train_industry_model(training_data_file):
+    """Trains a model to classify the industry based on 'AboutCompany'."""
+    df = pd.read_csv(training_data_file)
+    df = df.dropna(subset=['Industry', 'AboutCompany'])
+    X = df['AboutCompany']  # Text data
+    y = df['Industry']  # Target variable: Industry
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-# Split into train/test
-X_train, X_test, y_train_amount, y_test_amount = train_test_split(
-    X, y_amount, test_size=0.2, random_state=42
-)
+    # Create a pipeline for text vectorization and classification
+    model = Pipeline([
+        ('tfidf', TfidfVectorizer()),
+        ('classifier', RandomForestClassifier(random_state=42))  # Or any other classifier
+    ])
+    model.fit(X_train, y_train)
 
-# Create binary target for Success model
-success_threshold = 1_000_000
-y_train_success = (y_train_amount > success_threshold).astype(int)
-y_test_success = (y_test_amount > success_threshold).astype(int)
+    joblib.dump(model, 'industry_model.joblib')
+    print("Industry classification model trained and saved as industry_model.joblib")
 
-# --- Preprocess data for Industry model ---
-df_industry = df.dropna(subset=['About_Company', 'Industry'])
-X_industry = df_industry['About_Company']
-y_industry = df_industry['Industry']
+def main():
+    # You may need to adjust the file paths
+    training_data_file = 'trainingdata.csv'
 
-# Split into train/test
-X_train_ind, X_test_ind, y_train_ind, y_test_ind = train_test_split(
-    X_industry, y_industry, test_size=0.2, random_state=42
-)
+    train_funding_model(training_data_file)
+    train_success_model(training_data_file)
+    train_industry_model(training_data_file)
 
-# --- Model 1: Funding Prediction ---
-# Save scaler and label encoders
-joblib.dump(scaler, 'models/funding_scaler.joblib')
-joblib.dump(label_encoders, 'models/label_encoders.joblib')
-
-# Create and save funding model
-funding_imputer = SimpleImputer(strategy='median')
-X_train_funding = funding_imputer.fit_transform(X_train)
-rf_model = RandomForestRegressor(n_estimators=100, random_state=42)
-rf_model.fit(X_train_funding, y_train_amount)
-
-joblib.dump(funding_imputer, 'models/funding_imputer.joblib')
-joblib.dump(rf_model, 'models/funding_model.joblib')
-
-# --- Model 2: Startup Success ---
-# Create and save success pipeline
-success_pipeline = Pipeline([
-    ('imputer', SimpleImputer(strategy='mean')),
-    ('scaler', StandardScaler()),
-    ('classifier', LogisticRegression(random_state=42, class_weight='balanced'))
-])
-success_pipeline.fit(X_train, y_train_success)
-joblib.dump(success_pipeline, 'models/success_pipeline.joblib')
-
-# --- Model 3: Industry Classification ---
-# Create and save industry pipeline
-industry_pipeline = Pipeline([
-    ('tfidf', TfidfVectorizer(stop_words='english', max_features=5000)),
-    ('classifier', MultinomialNB())
-])
-industry_pipeline.fit(X_train_ind, y_train_ind)
-joblib.dump(industry_pipeline, 'models/industry_pipeline.joblib')
-
-print("All models trained and saved successfully!")
+if __name__ == "__main__":
+    main()

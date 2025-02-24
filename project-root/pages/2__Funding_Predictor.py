@@ -1,48 +1,44 @@
 import streamlit as st
-import joblib
 import pandas as pd
-import numpy as np
-from pathlib import Path
+import joblib
+import matplotlib.pyplot as plt
+import seaborn as sns
 
-current_dir = Path(__file__).parent
-models_dir = current_dir.parent / "models"  
+def main():
+    st.title("Funding Prediction")
 
-model = joblib.load(models_dir / "funding_model.joblib")
-imputer = joblib.load(models_dir / "funding_imputer.joblib")
+    # Check if cleaned data exists in session state
+    if 'cleaned_data' in st.session_state:
+        df = st.session_state['cleaned_data']
+        st.write("Data from Home Page:")
+        st.dataframe(df)
 
-def preprocess_data(df):
-    st.write("Uploaded file columns:", df.columns.tolist())
-    df.columns = df.columns.str.strip().str.lower()
-    expected_columns = ['Founded', 'RoundSeries', 'Head_Quarter', 'Industry']
-    
-    if not all(col in df.columns for col in expected_columns):
-        st.error(f"Uploaded data must contain the following columns: {expected_columns}")
-        return None
-    
-    processed_df = df[expected_columns]
-    return processed_df
+        # Load the model
+        model = joblib.load('funding_model.joblib')
 
-st.title("💰 Funding Prediction Model")
-uploaded_file = st.file_uploader("Upload startup data", type=["csv", "xlsx"])
+        # Preprocess the data for prediction (example)
+        # This needs to be adjusted based on your model's requirements
+        X = df[['Founded']]  # Example: Using 'Founded' year as a feature
+        X = X.fillna(X.mean())  # Handle any missing values
 
-if uploaded_file:
-    with st.spinner("Processing data..."):
-        if uploaded_file.name.endswith('.csv'):
-            df = pd.read_csv(uploaded_file, encoding='utf-8')
-        elif uploaded_file.name.endswith('.xlsx'):
-            df = pd.read_excel(uploaded_file)
-        else:
-            st.error("Unsupported file format. Please upload a CSV or Excel file.")
-            st.stop()  # Use st.stop() instead of return
-        
-        processed_df = preprocess_data(df)
-        
-        if processed_df is not None:
-            X = imputer.transform(processed_df)
-            predictions = model.predict(X)
-            
-            st.success("Predictions complete!")
-            st.subheader("Results")
-            st.dataframe(pd.DataFrame({
-                "Predicted Funding": np.expm1(predictions)
-            }), use_container_width=True)
+        # Make predictions
+        predictions = model.predict(X)
+        st.write("Predictions:")
+        st.write(predictions)
+
+        # Create visualizations (example)
+        st.subheader("Funding Amount Distribution")
+        fig, ax = plt.subplots(figsize=(10, 5))
+        sns.histplot(df['Amount'], ax=ax)
+        st.pyplot(fig)
+
+        st.subheader("Founded Year vs. Predicted Funding")
+        fig, ax = plt.subplots(figsize=(10, 5))
+        sns.scatterplot(x=df['Founded'], y=predictions, ax=ax)
+        st.pyplot(fig)
+
+    else:
+        st.info("Please upload data on the Home page first.")
+
+if __name__ == "__main__":
+    main()

@@ -1,92 +1,44 @@
-# pages/3_🚀_Startup_Success.py
 import streamlit as st
-import joblib
 import pandas as pd
-import numpy as np
-from sklearn.preprocessing import StandardScaler, OneHotEncoder
-from sklearn.compose import ColumnTransformer
-from sklearn.pipeline import Pipeline
-from sklearn.impute import SimpleImputer
-from pathlib import Path
+import joblib
+import matplotlib.pyplot as plt
+import seaborn as sns
 
-# Load pre-trained pipeline
-pipeline = joblib.load(Path(__file__).parent.parent / 'models/success_pipeline.joblib')
+def main():
+    st.title("Startup Success Prediction")
 
-def preprocess_success_data(df):
-    """Replicate preprocessing from notebook"""
-    # Ensure necessary columns exist
-    required_columns = ['Founded', 'Head_Quarter', 'Industry', 'RoundSeries'] # Added RoundSeries here
-    if not all(col in df.columns for col in required_columns):
-        raise ValueError(f"Missing required columns in the dataset. Required columns: {required_columns}")
+    # Check if cleaned data exists in session state
+    if 'cleaned_data' in st.session_state:
+        df = st.session_state['cleaned_data']
+        st.write("Data from Home Page:")
+        st.dataframe(df)
 
-    # Identify numeric and categorical columns
-    numeric_features = ['Founded']
-    categorical_features = ['Head_Quarter', 'Industry', 'RoundSeries'] #Added RoundSeries here
+        # Load the model
+        model = joblib.load('success_model.joblib')  # Assuming your model is named 'success_model.joblib'
 
-    # Handle missing values - fill with median for numeric and 'Unknown' for categorical
-    numeric_transformer = Pipeline(steps=[
-        ('imputer_num', SimpleImputer(strategy='median')),
-        ('scaler', StandardScaler())
-    ])
+        # Preprocess the data for prediction (Adapt this to your model)
+        # Example:  Using 'Industry' and 'Founded'
+        X = df[['Industry', 'Founded']]
+        X = pd.get_dummies(X, columns=['Industry'], drop_first=True) # One-hot encode 'Industry'
+        X = X.fillna(X.mean())
 
-    categorical_transformer = Pipeline(steps=[
-        ('imputer_cat', SimpleImputer(strategy='constant', fill_value='Unknown')),
-        ('onehot', OneHotEncoder(handle_unknown='ignore'))
-    ])
+        # Make predictions
+        predictions = model.predict(X)
+        st.write("Predictions:")
+        st.write(predictions)
 
-    # Create preprocessor
-    preprocessor = ColumnTransformer(
-        transformers=[
-            ('num', numeric_transformer, numeric_features),
-            ('cat', categorical_transformer, categorical_features),
-        ],
-        remainder='passthrough' # changed to passthrough
-    )
+        # Create visualizations (example)
+        st.subheader("Startup Success Distribution")
+        fig, ax = plt.subplots(figsize=(8, 4))
+        sns.histplot(predictions, ax=ax)
+        st.pyplot(fig)
 
-    return preprocessor.fit_transform(df)
+        # Example: Success Rate by Industry (if applicable)
+        # (Requires more complex processing based on your model's output)
+        # ...
 
-st.title("🚀 Startup Success Predictor")
-st.markdown("Predict whether startups will secure > $1M funding")
+    else:
+        st.info("Please upload data on the Home page first.")
 
-uploaded_file = st.file_uploader("Upload startup data",
-                                type=["csv", "xlsx", "xls"])
-
-if uploaded_file:
-    try:
-        # Read file
-        if uploaded_file.name.endswith('.csv'):
-            df = pd.read_csv(uploaded_file)
-        else:
-            df = pd.read_excel(uploaded_file)
-
-        # Rename columns
-        df = df.rename(columns={'RoundSeries': 'RoundSeries'})  # Correct the typo
-
-        with st.spinner("Analyzing data..."):
-            # Preprocess
-            processed_data = preprocess_success_data(df.copy())  # Pass a copy to avoid modifying the original DataFrame
-
-            # Predict
-            predictions = pipeline.predict(processed_data)
-            probabilities = pipeline.predict_proba(processed_data)[:, 1]
-
-            # Format results
-            results_df = pd.DataFrame({
-                'Success Probability': probabilities,
-                'Predicted Success': ['Yes' if x == 1 else 'No' for x in predictions]
-            })
-
-        st.success("Analysis complete!")
-
-        # Show interactive results
-        col1, col2 = st.columns(2)
-        with col1:
-            st.subheader("Predictions Overview")
-            st.dataframe(results_df, use_container_width=True)
-
-        with col2:
-            st.subheader("Success Distribution")
-            st.bar_chart(results_df['Predicted Success'].value_counts())
-
-    except Exception as e:
-        st.error(f"Error processing file: {str(e)}")
+if __name__ == "__main__":
+    main()

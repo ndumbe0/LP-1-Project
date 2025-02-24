@@ -1,73 +1,48 @@
-# pages/4_🏭_Industry_Classifier.py
 import streamlit as st
-import joblib
 import pandas as pd
-import spacy
-import en_core_web_sm
-nlp = en_core_web_sm.load()
-from sklearn.preprocessing import LabelEncoder
-from pathlib import Path
+import joblib
+import matplotlib.pyplot as plt
+import seaborn as sns
 
-# Load pre-trained pipeline and components
-pipeline = joblib.load(Path(__file__).parent.parent / 'models/industry_pipeline.joblib')
-nlp = spacy.load("en_core_web_sm")
+def main():
+    st.title("Industry Classification")
 
-def preprocess_text(text):
-    """Replicate notebook's text preprocessing"""
-    doc = nlp(str(text))
-    return " ".join([token.lemma_ for token in doc if not token.is_stop and token.is_alpha])
+    # Check if cleaned data exists in session state
+    if 'cleaned_data' in st.session_state:
+        df = st.session_state['cleaned_data']
+        st.write("Data from Home Page:")
+        st.dataframe(df)
 
-st.title("🏭 Industry Classifier")
-st.markdown("Classify startups into industries based on company descriptions")
+        # Load the model
+        model = joblib.load('industry_model.joblib') # Assuming your model is named 'industry_model.joblib'
 
-input_type = st.radio("Choose input type:", 
-                     ["📁 Upload File", "📝 Direct Input"])
+        # Preprocess the data (Adapt to your model's input)
+        # Example: Using 'AboutCompany' (text data)
+        from sklearn.feature_extraction.text import TfidfVectorizer
+        vectorizer = TfidfVectorizer()  # You might need to load a pre-fitted vectorizer
+        X = vectorizer.fit_transform(df['AboutCompany'])  # Transforms the 'AboutCompany' descriptions into a matrix of TF-IDF features.
 
-if input_type == "📁 Upload File":
-    uploaded_file = st.file_uploader("Upload company data (CSV/Excel)", 
-                                    type=["csv", "xlsx", "xls"])
-    if uploaded_file:
-        try:
-            if uploaded_file.name.endswith('.csv'):
-                df = pd.read_csv(uploaded_file)
-            else:
-                df = pd.read_excel(uploaded_file)
-                
-            if 'About_Company' not in df.columns:
-                st.error("File must contain 'About_Company' column")
-            else:
-                with st.spinner("Classifying industries..."):
-                    # Preprocess text
-                    df['Processed_Text'] = df['About_Company'].apply(preprocess_text)
-                    
-                    # Predict
-                    predictions = pipeline.predict(df['Processed_Text'])
-                    
-                    # Add to dataframe
-                    df['Predicted_Industry'] = predictions
-                    
-                st.success("Classification complete!")
-                st.subheader("Results")
-                st.dataframe(df[['About_Company', 'Predicted_Industry']], 
-                            use_container_width=True)
-                
-        except Exception as e:
-            st.error(f"Error processing file: {str(e)}")
+        # Make predictions
+        predictions = model.predict(X)
+        st.write("Predictions:")
+        st.write(predictions)
 
-else:
-    text_input = st.text_area("Enter company description:", 
-                            height=150,
-                            placeholder="Paste company description here...")
-    
-    if text_input:
-        with st.spinner("Analyzing text..."):
-            processed_text = preprocess_text(text_input)
-            prediction = pipeline.predict([processed_text])[0]
-            probability = np.max(pipeline.decision_function([processed_text]))
-            
-        st.subheader("Prediction Result")
-        col1, col2 = st.columns(2)
-        with col1:
-            st.metric("Predicted Industry", prediction)
-        with col2:
-            st.metric("Confidence Score", f"{probability:.2f}")
+        # Map the numerical predictions back to Industry names
+        # Assuming you have a mapping of numbers to industry names
+        industry_mapping = {0: 'Industry1', 1: 'Industry2', 2: 'Industry3'} # Replace with your actual mapping
+        predicted_industries = [industry_mapping.get(pred, 'Unknown') for pred in predictions] # Returns the industry name
+        st.write("Predicted Industries:")
+        st.write(predicted_industries)
+
+        # Create visualizations (example)
+        st.subheader("Industry Distribution")
+        industry_counts = pd.Series(predicted_industries).value_counts() # Counts how many times each value appears in the Series
+        fig, ax = plt.subplots(figsize=(10, 5))
+        sns.barplot(x=industry_counts.index, y=industry_counts.values, ax=ax) # Creates a barplot
+        plt.xticks(rotation=45, ha='right') # Rotates the labels on x axis
+        st.pyplot(fig) # Displays graph in Streamlit
+    else:
+        st.info("Please upload data on the Home page first.")
+
+if __name__ == "__main__":
+    main()
