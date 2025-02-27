@@ -1,0 +1,5 @@
+{
+    "DockerRun.DisableDockerrc": true,
+    "DockerRun.DisableAutoGenerateConfig": true,
+    "postman.settings.dotenv-detection-notification-visibility": false
+}
