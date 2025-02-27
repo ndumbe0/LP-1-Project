@@ -5,23 +5,23 @@ import pandas as pd
 import joblib
 from sklearn.feature_extraction.text import TfidfVectorizer
 
-# Add the 'pages' directory to the system path
+
 sys.path.append(os.path.join(os.path.dirname(__file__), "pages"))
 
-# Set the title for the app
+
 st.set_page_config(page_title="Startup Analyzer", page_icon="📈", layout="wide")
-=======
 
-# Set the title for the app
+
+
 st.set_page_config(page_title="Startup Analyzer", page_icon="📈")
->>>>>>> a652281e95dbfb0b149a8ac1a2269bc80ef39378
 
-# Create a sidebar for navigation
+
+
 st.sidebar.title("Navigation")
 page = st.sidebar.radio("Go to", ("Home", "Funding Predictor", "Startup Success", "Industry Classifier"))
 
  
-# Dictionary to map page names to their corresponding module names
+
 page_modules = {
     "Home": "1__Home",
     "Funding Predictor": "2__Funding_Predictor",
@@ -29,7 +29,7 @@ page_modules = {
     "Industry Classifier": "4__Industry_Classifier",
 }
 
-# Welcome message and brief explanation
+
 if page == "Home":
     st.title("Welcome to the Startup Analyzer App 📈")
     st.write("""
@@ -41,20 +41,20 @@ if page == "Home":
     - **Industry Classifier**: Classify startups into industries based on their descriptions.
     """)
 else:
-    # Load the selected page
+    
     if page in page_modules:
         module_name = page_modules[page]
-        module = __import__(module_name)  # Dynamically import the module
-        module.main()  # Call the main() function in the imported module
+        module = __import__(module_name)  
+        module.main()  
 
-# API endpoint for predictions
+
 def predict_api(input_data):
-    # Load models
+    
     funding_model = joblib.load('models/funding_model.joblib')
     success_model = joblib.load('models/success_model.joblib')
     industry_model = joblib.load('models/industry_model.joblib')
     
-    # Preprocess input data
+    
     df = pd.DataFrame(input_data)
     
     # Funding prediction
@@ -99,4 +99,3 @@ elif page == "Startup Success":
 elif page == "Industry Classifier":
     import Industry_Classifier
     Industry_Classifier.main()
->>>>>>> a652281e95dbfb0b149a8ac1a2269bc80ef39378
