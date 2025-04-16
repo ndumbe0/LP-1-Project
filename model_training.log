@@ -1,0 +1,231 @@
+2025-04-17 00:30:32,701 - INFO - Starting model training pipeline
+2025-04-17 00:30:32,702 - INFO - Starting funding model training
+2025-04-17 00:30:32,785 - ERROR - Error in training funding model: "Required column 'Year Founded' not found in dataset"
+Traceback (most recent call last):
+  File "f:\school\Azubi Africa\LP1 Data Analytics Project\LP-1-Project\project-root\train_models.py", line 102, in train_funding_model
+    raise KeyError(f"Required column '{col}' not found in dataset")
+KeyError: "Required column 'Year Founded' not found in dataset"
+2025-04-17 00:30:32,788 - ERROR - Model training failed
+Traceback (most recent call last):
+  File "f:\school\Azubi Africa\LP1 Data Analytics Project\LP-1-Project\project-root\train_models.py", line 325, in main
+    train_funding_model(TRAINING_DATA_FILE)
+  File "f:\school\Azubi Africa\LP1 Data Analytics Project\LP-1-Project\project-root\train_models.py", line 102, in train_funding_model
+    raise KeyError(f"Required column '{col}' not found in dataset")
+KeyError: "Required column 'Year Founded' not found in dataset"
+2025-04-17 00:39:51,236 - INFO - Starting model training pipeline
+2025-04-17 00:39:51,238 - INFO - Starting funding model training
+2025-04-17 00:39:51,263 - ERROR - Error in training funding model: "Required column 'Country' not found in dataset"
+Traceback (most recent call last):
+  File "f:\school\Azubi Africa\LP1 Data Analytics Project\LP-1-Project\project-root\train_models.py", line 102, in train_funding_model
+    raise KeyError(f"Required column '{col}' not found in dataset")
+KeyError: "Required column 'Country' not found in dataset"
+2025-04-17 00:39:51,269 - ERROR - Model training failed
+Traceback (most recent call last):
+  File "f:\school\Azubi Africa\LP1 Data Analytics Project\LP-1-Project\project-root\train_models.py", line 325, in main
+    train_funding_model(TRAINING_DATA_FILE)
+  File "f:\school\Azubi Africa\LP1 Data Analytics Project\LP-1-Project\project-root\train_models.py", line 102, in train_funding_model
+    raise KeyError(f"Required column '{col}' not found in dataset")
+KeyError: "Required column 'Country' not found in dataset"
+2025-04-17 00:43:00,880 - INFO - Starting model training pipeline
+2025-04-17 00:43:00,881 - INFO - Starting funding model training
+2025-04-17 00:43:42,231 - ERROR - Error in training funding model: 
+All the 60 fits failed.
+It is very likely that your model is misconfigured.
+You can try to debug the error by setting error_score='raise'.
+
+Below are more details about the failures:
+--------------------------------------------------------------------------------
+60 fits failed with the following error:
+Traceback (most recent call last):
+  File "C:\Users\MoseS\AppData\Local\Programs\Python\Python312\Lib\site-packages\sklearn\model_selection\_validation.py", line 866, in _fit_and_score
+    estimator.fit(X_train, y_train, **fit_params)
+  File "C:\Users\MoseS\AppData\Local\Programs\Python\Python312\Lib\site-packages\sklearn\base.py", line 1389, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MoseS\AppData\Local\Programs\Python\Python312\Lib\site-packages\sklearn\pipeline.py", line 662, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "C:\Users\MoseS\AppData\Local\Programs\Python\Python312\Lib\site-packages\sklearn\base.py", line 1389, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MoseS\AppData\Local\Programs\Python\Python312\Lib\site-packages\sklearn\ensemble\_forest.py", line 360, in fit
+    X, y = validate_data(
+           ^^^^^^^^^^^^^^
+  File "C:\Users\MoseS\AppData\Local\Programs\Python\Python312\Lib\site-packages\sklearn\utils\validation.py", line 2961, in validate_data
+    X, y = check_X_y(X, y, **check_params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MoseS\AppData\Local\Programs\Python\Python312\Lib\site-packages\sklearn\utils\validation.py", line 1387, in check_X_y
+    y = _check_y(y, multi_output=multi_output, y_numeric=y_numeric, estimator=estimator)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MoseS\AppData\Local\Programs\Python\Python312\Lib\site-packages\sklearn\utils\validation.py", line 1397, in _check_y
+    y = check_array(
+        ^^^^^^^^^^^^
+  File "C:\Users\MoseS\AppData\Local\Programs\Python\Python312\Lib\site-packages\sklearn\utils\validation.py", line 1107, in check_array
+    _assert_all_finite(
+  File "C:\Users\MoseS\AppData\Local\Programs\Python\Python312\Lib\site-packages\sklearn\utils\validation.py", line 120, in _assert_all_finite
+    _assert_all_finite_element_wise(
+  File "C:\Users\MoseS\AppData\Local\Programs\Python\Python312\Lib\site-packages\sklearn\utils\validation.py", line 169, in _assert_all_finite_element_wise
+    raise ValueError(msg_err)
+ValueError: Input y contains NaN.
+Traceback (most recent call last):
+  File "f:\school\Azubi Africa\LP1 Data Analytics Project\LP-1-Project\project-root\train_models.py", line 152, in train_funding_model
+    grid_search.fit(X_train, y_train)
+  File "C:\Users\MoseS\AppData\Local\Programs\Python\Python312\Lib\site-packages\sklearn\base.py", line 1389, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MoseS\AppData\Local\Programs\Python\Python312\Lib\site-packages\sklearn\model_selection\_search.py", line 1024, in fit
+    self._run_search(evaluate_candidates)
+  File "C:\Users\MoseS\AppData\Local\Programs\Python\Python312\Lib\site-packages\sklearn\model_selection\_search.py", line 1571, in _run_search
+    evaluate_candidates(ParameterGrid(self.param_grid))
+  File "C:\Users\MoseS\AppData\Local\Programs\Python\Python312\Lib\site-packages\sklearn\model_selection\_search.py", line 1001, in evaluate_candidates
+    _warn_or_raise_about_fit_failures(out, self.error_score)
+  File "C:\Users\MoseS\AppData\Local\Programs\Python\Python312\Lib\site-packages\sklearn\model_selection\_validation.py", line 517, in _warn_or_raise_about_fit_failures
+    raise ValueError(all_fits_failed_message)
+ValueError: 
+All the 60 fits failed.
+It is very likely that your model is misconfigured.
+You can try to debug the error by setting error_score='raise'.
+
+Below are more details about the failures:
+--------------------------------------------------------------------------------
+60 fits failed with the following error:
+Traceback (most recent call last):
+  File "C:\Users\MoseS\AppData\Local\Programs\Python\Python312\Lib\site-packages\sklearn\model_selection\_validation.py", line 866, in _fit_and_score
+    estimator.fit(X_train, y_train, **fit_params)
+  File "C:\Users\MoseS\AppData\Local\Programs\Python\Python312\Lib\site-packages\sklearn\base.py", line 1389, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MoseS\AppData\Local\Programs\Python\Python312\Lib\site-packages\sklearn\pipeline.py", line 662, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "C:\Users\MoseS\AppData\Local\Programs\Python\Python312\Lib\site-packages\sklearn\base.py", line 1389, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MoseS\AppData\Local\Programs\Python\Python312\Lib\site-packages\sklearn\ensemble\_forest.py", line 360, in fit
+    X, y = validate_data(
+           ^^^^^^^^^^^^^^
+  File "C:\Users\MoseS\AppData\Local\Programs\Python\Python312\Lib\site-packages\sklearn\utils\validation.py", line 2961, in validate_data
+    X, y = check_X_y(X, y, **check_params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MoseS\AppData\Local\Programs\Python\Python312\Lib\site-packages\sklearn\utils\validation.py", line 1387, in check_X_y
+    y = _check_y(y, multi_output=multi_output, y_numeric=y_numeric, estimator=estimator)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MoseS\AppData\Local\Programs\Python\Python312\Lib\site-packages\sklearn\utils\validation.py", line 1397, in _check_y
+    y = check_array(
+        ^^^^^^^^^^^^
+  File "C:\Users\MoseS\AppData\Local\Programs\Python\Python312\Lib\site-packages\sklearn\utils\validation.py", line 1107, in check_array
+    _assert_all_finite(
+  File "C:\Users\MoseS\AppData\Local\Programs\Python\Python312\Lib\site-packages\sklearn\utils\validation.py", line 120, in _assert_all_finite
+    _assert_all_finite_element_wise(
+  File "C:\Users\MoseS\AppData\Local\Programs\Python\Python312\Lib\site-packages\sklearn\utils\validation.py", line 169, in _assert_all_finite_element_wise
+    raise ValueError(msg_err)
+ValueError: Input y contains NaN.
+
+2025-04-17 00:43:42,331 - ERROR - Model training failed
+Traceback (most recent call last):
+  File "f:\school\Azubi Africa\LP1 Data Analytics Project\LP-1-Project\project-root\train_models.py", line 325, in main
+    train_funding_model(TRAINING_DATA_FILE)
+  File "f:\school\Azubi Africa\LP1 Data Analytics Project\LP-1-Project\project-root\train_models.py", line 152, in train_funding_model
+    grid_search.fit(X_train, y_train)
+  File "C:\Users\MoseS\AppData\Local\Programs\Python\Python312\Lib\site-packages\sklearn\base.py", line 1389, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MoseS\AppData\Local\Programs\Python\Python312\Lib\site-packages\sklearn\model_selection\_search.py", line 1024, in fit
+    self._run_search(evaluate_candidates)
+  File "C:\Users\MoseS\AppData\Local\Programs\Python\Python312\Lib\site-packages\sklearn\model_selection\_search.py", line 1571, in _run_search
+    evaluate_candidates(ParameterGrid(self.param_grid))
+  File "C:\Users\MoseS\AppData\Local\Programs\Python\Python312\Lib\site-packages\sklearn\model_selection\_search.py", line 1001, in evaluate_candidates
+    _warn_or_raise_about_fit_failures(out, self.error_score)
+  File "C:\Users\MoseS\AppData\Local\Programs\Python\Python312\Lib\site-packages\sklearn\model_selection\_validation.py", line 517, in _warn_or_raise_about_fit_failures
+    raise ValueError(all_fits_failed_message)
+ValueError: 
+All the 60 fits failed.
+It is very likely that your model is misconfigured.
+You can try to debug the error by setting error_score='raise'.
+
+Below are more details about the failures:
+--------------------------------------------------------------------------------
+60 fits failed with the following error:
+Traceback (most recent call last):
+  File "C:\Users\MoseS\AppData\Local\Programs\Python\Python312\Lib\site-packages\sklearn\model_selection\_validation.py", line 866, in _fit_and_score
+    estimator.fit(X_train, y_train, **fit_params)
+  File "C:\Users\MoseS\AppData\Local\Programs\Python\Python312\Lib\site-packages\sklearn\base.py", line 1389, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MoseS\AppData\Local\Programs\Python\Python312\Lib\site-packages\sklearn\pipeline.py", line 662, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "C:\Users\MoseS\AppData\Local\Programs\Python\Python312\Lib\site-packages\sklearn\base.py", line 1389, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MoseS\AppData\Local\Programs\Python\Python312\Lib\site-packages\sklearn\ensemble\_forest.py", line 360, in fit
+    X, y = validate_data(
+           ^^^^^^^^^^^^^^
+  File "C:\Users\MoseS\AppData\Local\Programs\Python\Python312\Lib\site-packages\sklearn\utils\validation.py", line 2961, in validate_data
+    X, y = check_X_y(X, y, **check_params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MoseS\AppData\Local\Programs\Python\Python312\Lib\site-packages\sklearn\utils\validation.py", line 1387, in check_X_y
+    y = _check_y(y, multi_output=multi_output, y_numeric=y_numeric, estimator=estimator)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MoseS\AppData\Local\Programs\Python\Python312\Lib\site-packages\sklearn\utils\validation.py", line 1397, in _check_y
+    y = check_array(
+        ^^^^^^^^^^^^
+  File "C:\Users\MoseS\AppData\Local\Programs\Python\Python312\Lib\site-packages\sklearn\utils\validation.py", line 1107, in check_array
+    _assert_all_finite(
+  File "C:\Users\MoseS\AppData\Local\Programs\Python\Python312\Lib\site-packages\sklearn\utils\validation.py", line 120, in _assert_all_finite
+    _assert_all_finite_element_wise(
+  File "C:\Users\MoseS\AppData\Local\Programs\Python\Python312\Lib\site-packages\sklearn\utils\validation.py", line 169, in _assert_all_finite_element_wise
+    raise ValueError(msg_err)
+ValueError: Input y contains NaN.
+
+2025-04-17 00:50:38,055 - INFO - Starting model training pipeline
+2025-04-17 00:50:38,062 - INFO - Starting funding model training
+2025-04-17 00:50:38,108 - WARNING - Found 166 NaN values in target variable. Dropping these rows.
+2025-04-17 00:56:47,844 - INFO - 
+Funding Prediction Regression Metrics:
+2025-04-17 00:56:47,845 - INFO - MAE: 1.4291
+2025-04-17 00:56:47,847 - INFO - MSE: 3.2302
+2025-04-17 00:56:47,847 - INFO - RMSE: 1.7973
+2025-04-17 00:56:47,848 - INFO - R2: 0.0119
+2025-04-17 00:56:49,578 - INFO - Best parameters: {'regressor__max_depth': 10, 'regressor__min_samples_split': 5, 'regressor__n_estimators': 200}
+2025-04-17 00:56:49,578 - INFO - Funding model saved to F:\school\Azubi Africa\LP1 Data Analytics Project\LP-1-Project\project-root\models\funding_model.joblib
+2025-04-17 00:56:49,580 - INFO - Starting success model training
+2025-04-17 00:58:50,922 - INFO - Starting model training pipeline
+2025-04-17 00:58:50,923 - INFO - Starting funding model training
+2025-04-17 00:58:50,952 - WARNING - Found 166 NaN values in target variable. Dropping these rows.
+2025-04-17 00:58:50,976 - INFO - Data shape after dropping NaN values: (826, 7)
+2025-04-17 01:02:40,190 - INFO - 
+Funding Prediction Regression Metrics:
+2025-04-17 01:02:40,191 - INFO - MAE: 1.4291
+2025-04-17 01:02:40,192 - INFO - MSE: 3.2302
+2025-04-17 01:02:40,192 - INFO - RMSE: 1.7973
+2025-04-17 01:02:40,192 - INFO - R2: 0.0119
+2025-04-17 01:02:40,978 - INFO - Best parameters: {'regressor__max_depth': 10, 'regressor__min_samples_split': 5, 'regressor__n_estimators': 200}
+2025-04-17 01:02:40,979 - INFO - Funding model saved to F:\school\Azubi Africa\LP1 Data Analytics Project\LP-1-Project\project-root\models\funding_model.joblib
+2025-04-17 01:02:40,986 - INFO - Starting success model training
+2025-04-17 01:05:22,011 - INFO - 
+Success Prediction Classification Metrics:
+2025-04-17 01:05:22,061 - INFO -               precision    recall  f1-score   support
+
+           0       0.69      0.62      0.65       117
+           1       0.53      0.60      0.56        82
+
+    accuracy                           0.61       199
+   macro avg       0.61      0.61      0.61       199
+weighted avg       0.62      0.61      0.62       199
+
+2025-04-17 01:05:22,061 - INFO - Confusion Matrix:
+2025-04-17 01:05:22,078 - INFO - [[73 44]
+ [33 49]]
+2025-04-17 01:05:22,628 - INFO - Best parameters: {'classifier__class_weight': 'balanced', 'classifier__max_depth': 20, 'classifier__min_samples_split': 5, 'classifier__n_estimators': 100}
+2025-04-17 01:05:22,629 - INFO - Success model saved to F:\school\Azubi Africa\LP1 Data Analytics Project\LP-1-Project\project-root\models\success_model.joblib
+2025-04-17 01:05:22,630 - INFO - Starting industry model training
+2025-04-17 01:05:22,642 - ERROR - Error in training industry model: "Required column 'AboutCompany' not found in dataset"
+Traceback (most recent call last):
+  File "f:\school\Azubi Africa\LP1 Data Analytics Project\LP-1-Project\project-root\train_models.py", line 275, in train_industry_model
+    raise KeyError(f"Required column '{col}' not found in dataset")
+KeyError: "Required column 'AboutCompany' not found in dataset"
+2025-04-17 01:05:22,647 - ERROR - Model training failed
+Traceback (most recent call last):
+  File "f:\school\Azubi Africa\LP1 Data Analytics Project\LP-1-Project\project-root\train_models.py", line 335, in main
+    train_industry_model(TRAINING_DATA_FILE)
+  File "f:\school\Azubi Africa\LP1 Data Analytics Project\LP-1-Project\project-root\train_models.py", line 275, in train_industry_model
+    raise KeyError(f"Required column '{col}' not found in dataset")
+KeyError: "Required column 'AboutCompany' not found in dataset"
