@@ -361,3 +361,125 @@ Traceback (most recent call last):
   File "C:\Users\MoseS\AppData\Local\Programs\Python\Python312\Lib\site-packages\sklearn\model_selection\_split.py", line 2318, in _iter_indices
     raise ValueError(
 ValueError: The least populated class in y has only 1 member, which is too few. The minimum number of groups for any class cannot be less than 2.
+2025-04-19 05:38:06,307 - INFO - Starting model training pipeline
+2025-04-19 05:38:06,308 - INFO - Starting funding model training
+2025-04-19 05:38:06,357 - WARNING - Found 166 NaN values in target variable. Dropping these rows.
+2025-04-19 05:38:06,369 - INFO - Data shape after dropping NaN values: (826, 8)
+2025-04-19 05:47:22,528 - INFO - 
+Funding Prediction Regression Metrics:
+2025-04-19 05:47:22,528 - INFO - MAE: 1.4291
+2025-04-19 05:47:22,531 - INFO - MSE: 3.2302
+2025-04-19 05:47:22,532 - INFO - RMSE: 1.7973
+2025-04-19 05:47:22,532 - INFO - R2: 0.0119
+2025-04-19 05:47:25,675 - INFO - Best parameters: {'regressor__max_depth': 10, 'regressor__min_samples_split': 5, 'regressor__n_estimators': 200}
+2025-04-19 05:47:25,675 - INFO - Funding model saved to F:\school\Azubi Africa\LP1 Data Analytics Project\LP-1-Project\project-root\models\funding_model.joblib
+2025-04-19 05:47:25,677 - INFO - Starting success model training
+2025-04-19 05:52:15,990 - INFO - 
+Success Prediction Classification Metrics:
+2025-04-19 05:52:16,127 - INFO -               precision    recall  f1-score   support
+
+           0       0.69      0.62      0.65       117
+           1       0.53      0.60      0.56        82
+
+    accuracy                           0.61       199
+   macro avg       0.61      0.61      0.61       199
+weighted avg       0.62      0.61      0.62       199
+
+2025-04-19 05:52:16,128 - INFO - Confusion Matrix:
+2025-04-19 05:52:16,138 - INFO - [[73 44]
+ [33 49]]
+2025-04-19 05:52:16,675 - INFO - Best parameters: {'classifier__class_weight': 'balanced', 'classifier__max_depth': 20, 'classifier__min_samples_split': 5, 'classifier__n_estimators': 100}
+2025-04-19 05:52:16,676 - INFO - Success model saved to F:\school\Azubi Africa\LP1 Data Analytics Project\LP-1-Project\project-root\models\success_model.joblib
+2025-04-19 05:52:16,678 - INFO - Starting industry model training
+2025-04-19 05:52:17,729 - INFO - Training on 677 samples across 106 industry classes
+2025-04-19 06:24:31,905 - INFO - 
+Industry Classification Classification Metrics:
+2025-04-19 06:28:45,928 - INFO -               precision    recall  f1-score   support
+
+         0.0       0.00      0.00      0.00         1
+         5.0       0.00      0.00      0.00         2
+        13.0       0.50      0.50      0.50         4
+        15.0       0.00      0.00      0.00         1
+        18.0       0.00      0.00      0.00         1
+        20.0       0.00      0.00      0.00         0
+        24.0       1.00      0.33      0.50         3
+        42.0       0.00      0.00      0.00         1
+        45.0       0.00      0.00      0.00         1
+        64.0       0.00      0.00      0.00         2
+        65.0       0.00      0.00      0.00         1
+        66.0       1.00      1.00      1.00         1
+        68.0       0.00      0.00      0.00         2
+        69.0       0.00      0.00      0.00         1
+        76.0       0.00      0.00      0.00         2
+        90.0       0.00      0.00      0.00         1
+        96.0       0.38      0.83      0.53         6
+        98.0       0.00      0.00      0.00         3
+        99.0       0.00      0.00      0.00         0
+       104.0       0.00      0.00      0.00         1
+       105.0       0.38      0.73      0.50        11
+       106.0       0.00      0.00      0.00         1
+       108.0       0.50      0.33      0.40         3
+       113.0       1.00      1.00      1.00         1
+       119.0       0.00      0.00      0.00         1
+       124.0       0.35      0.60      0.44        15
+       125.0       0.00      0.00      0.00         1
+       127.0       0.20      0.14      0.17         7
+       128.0       0.00      0.00      0.00         4
+       131.0       0.00      0.00      0.00         0
+       133.0       0.00      0.00      0.00         1
+       134.0       1.00      0.67      0.80         3
+       138.0       0.00      0.00      0.00         1
+       141.0       1.00      0.50      0.67         2
+       144.0       1.00      0.50      0.67         2
+       148.0       1.00      1.00      1.00         1
+       153.0       0.00      0.00      0.00         2
+       154.0       0.00      0.00      0.00         2
+       155.0       0.00      0.00      0.00         2
+       156.0       0.25      0.33      0.29         3
+       158.0       0.00      0.00      0.00         1
+       160.0       0.00      0.00      0.00         1
+       161.0       0.00      0.00      0.00         1
+       166.0       0.00      0.00      0.00         1
+       167.0       0.50      0.50      0.50         2
+       170.0       0.00      0.00      0.00         1
+       171.0       0.00      0.00      0.00         0
+       173.0       0.00      0.00      0.00         1
+       174.0       0.00      0.00      0.00         3
+       177.0       0.00      0.00      0.00         1
+       181.0       0.00      0.00      0.00         1
+       194.0       0.67      0.67      0.67         3
+       195.0       0.00      0.00      0.00         2
+       204.0       0.00      0.00      0.00         1
+       208.0       0.00      0.00      0.00         1
+       209.0       0.00      0.00      0.00         0
+       215.0       0.00      0.00      0.00         1
+       220.0       0.00      0.00      0.00         0
+       229.0       1.00      1.00      1.00         1
+       236.0       0.00      0.00      0.00         3
+       239.0       0.00      0.00      0.00         2
+       241.0       0.00      0.00      0.00         3
+       247.0       0.00      0.00      0.00         1
+       250.0       0.00      0.00      0.00         0
+       255.0       0.00      0.00      0.00         0
+       259.0       0.00      0.00      0.00         1
+       267.0       0.00      0.00      0.00         2
+       268.0       0.00      0.00      0.00         2
+       271.0       0.00      0.00      0.00         1
+       278.0       1.00      1.00      1.00         1
+       280.0       0.00      0.00      0.00         1
+
+    accuracy                           0.29       136
+   macro avg       0.18      0.16      0.16       136
+weighted avg       0.26      0.29      0.26       136
+
+2025-04-19 06:28:45,929 - INFO - Confusion Matrix:
+2025-04-19 06:28:45,973 - INFO - [[0 0 0 ... 0 0 0]
+ [0 0 1 ... 0 0 0]
+ [0 0 2 ... 0 0 0]
+ ...
+ [0 0 0 ... 0 0 0]
+ [0 0 0 ... 0 1 0]
+ [0 0 0 ... 0 0 0]]
+2025-04-19 06:28:50,690 - INFO - Best parameters: {'classifier__class_weight': None, 'classifier__max_depth': None, 'classifier__n_estimators': 100, 'tfidf__max_features': 3000, 'tfidf__ngram_range': (1, 2)}
+2025-04-19 06:28:50,692 - INFO - Industry model saved to F:\school\Azubi Africa\LP1 Data Analytics Project\LP-1-Project\project-root\models\industry_model.joblib
+2025-04-19 06:28:50,726 - INFO - Model training completed successfully

@@ -278,6 +278,16 @@ def train_industry_model(training_data_file: str) -> None:
         df = df.dropna(subset=['Industry In', 'AboutCompany'])
         df['AboutCompany'] = df['AboutCompany'].str.lower().str.strip()
         
+        # Filter out rare industry classes (those with fewer than 2 samples)
+        value_counts = df['Industry In'].value_counts()
+        rare_classes = value_counts[value_counts < 2].index
+        df = df[~df['Industry In'].isin(rare_classes)]
+        
+        if len(df) == 0:
+            raise ValueError("No data remaining after filtering rare industry classes")
+            
+        logger.info(f"Training on {len(df)} samples across {len(df['Industry In'].unique())} industry classes")
+        
         # Split data
         X = df['AboutCompany']
         y = df['Industry In']
