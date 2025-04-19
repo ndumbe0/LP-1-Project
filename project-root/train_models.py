@@ -72,14 +72,18 @@ def evaluate_regression_model(model, X_test, y_test, model_name: str) -> Dict[st
 def evaluate_classification_model(model, X_test, y_test, model_name: str) -> Dict[str, float]:
     """Evaluate classification model and return metrics."""
     y_pred = model.predict(X_test)
+    
+    # Handle zero_division warnings
+    zero_division_param = 0  # You can set this to 1 if you want to consider them as 1.0
+    
     metrics = {
         'accuracy': accuracy_score(y_test, y_pred),
-        'precision': precision_score(y_test, y_pred, average='weighted'),
-        'recall': recall_score(y_test, y_pred, average='weighted'),
-        'f1': f1_score(y_test, y_pred, average='weighted'),
+        'precision': precision_score(y_test, y_pred, average='weighted', zero_division=zero_division_param),
+        'recall': recall_score(y_test, y_pred, average='weighted', zero_division=zero_division_param),
+        'f1': f1_score(y_test, y_pred, average='weighted', zero_division=zero_division_param),
     }
     logger.info(f"\n{model_name} Classification Metrics:")
-    logger.info(classification_report(y_test, y_pred))
+    logger.info(classification_report(y_test, y_pred, zero_division=zero_division_param))
     logger.info("Confusion Matrix:")
     logger.info(confusion_matrix(y_test, y_pred))
     return metrics
@@ -155,7 +159,7 @@ def train_funding_model(training_data_file: str) -> None:
         # Train with GridSearchCV
         grid_search = GridSearchCV(
             pipeline, param_grid, cv=5, scoring='neg_mean_squared_error', n_jobs=-1,
-            error_score='raise')  # Added error_score='raise' for better debugging
+            error_score='raise')
         
         grid_search.fit(X_train, y_train)
         
@@ -278,9 +282,10 @@ def train_industry_model(training_data_file: str) -> None:
         df = df.dropna(subset=['Industry In', 'AboutCompany'])
         df['AboutCompany'] = df['AboutCompany'].str.lower().str.strip()
         
-        # Filter out rare industry classes (those with fewer than 2 samples)
+        # Filter out rare industry classes (those with fewer than 5 samples)
+        min_samples_per_class = 5
         value_counts = df['Industry In'].value_counts()
-        rare_classes = value_counts[value_counts < 2].index
+        rare_classes = value_counts[value_counts < min_samples_per_class].index
         df = df[~df['Industry In'].isin(rare_classes)]
         
         if len(df) == 0:
@@ -294,6 +299,12 @@ def train_industry_model(training_data_file: str) -> None:
         X_train, X_test, y_train, y_test = train_test_split(
             X, y, test_size=0.2, random_state=42, stratify=y)
         
+        # Check if any class has too few samples for stratified split
+        class_counts = y.value_counts()
+        if any(class_counts < 5):
+            logger.warning(f"Some classes have very few samples: {class_counts[class_counts < 5]}")
+            logger.warning("Consider merging similar rare categories or using a different evaluation strategy")
+        
         # Define model pipeline with hyperparameter tuning
         pipeline = Pipeline([
             ('tfidf', TfidfVectorizer(
@@ -305,16 +316,26 @@ def train_industry_model(training_data_file: str) -> None:
         
         # Hyperparameter grid
         param_grid = {
-            'tfidf__max_features': [3000, 5000, 10000],
+            'tfidf__max_features': [3000, 5000],
             'tfidf__ngram_range': [(1, 1), (1, 2)],
-            'classifier__n_estimators': [100, 200],
-            'classifier__max_depth': [None, 10, 20],
-            'classifier__class_weight': [None, 'balanced']
+            'classifier__n_estimators': [100],
+            'classifier__max_depth': [None, 10],
+            'classifier__class_weight': ['balanced']  # Always use balanced for imbalanced classes
         }
+        
+        # Reduce cv if some classes have too few samples
+        min_class_count = class_counts.min()
+        cv_value = min(5, min_class_count)  # Don't use more folds than the smallest class count
         
         # Train with GridSearchCV
         grid_search = GridSearchCV(
-            pipeline, param_grid, cv=5, scoring='f1_weighted', n_jobs=-1)
+            pipeline, 
+            param_grid, 
+            cv=cv_value, 
+            scoring='f1_weighted', 
+            n_jobs=-1,
+            error_score='raise')
+        
         grid_search.fit(X_train, y_train)
         
         # Evaluate
