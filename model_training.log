@@ -229,3 +229,135 @@ Traceback (most recent call last):
   File "f:\school\Azubi Africa\LP1 Data Analytics Project\LP-1-Project\project-root\train_models.py", line 275, in train_industry_model
     raise KeyError(f"Required column '{col}' not found in dataset")
 KeyError: "Required column 'AboutCompany' not found in dataset"
+2025-04-17 01:56:24,074 - INFO - Starting model training pipeline
+2025-04-17 01:56:24,076 - INFO - Starting funding model training
+2025-04-17 01:56:24,111 - WARNING - Found 166 NaN values in target variable. Dropping these rows.
+2025-04-17 01:56:24,117 - INFO - Data shape after dropping NaN values: (826, 8)
+2025-04-17 01:58:33,940 - INFO - 
+Funding Prediction Regression Metrics:
+2025-04-17 01:58:33,943 - INFO - MAE: 1.4291
+2025-04-17 01:58:33,946 - INFO - MSE: 3.2302
+2025-04-17 01:58:33,946 - INFO - RMSE: 1.7973
+2025-04-17 01:58:33,947 - INFO - R2: 0.0119
+2025-04-17 01:58:34,470 - INFO - Best parameters: {'regressor__max_depth': 10, 'regressor__min_samples_split': 5, 'regressor__n_estimators': 200}
+2025-04-17 01:58:34,471 - INFO - Funding model saved to F:\school\Azubi Africa\LP1 Data Analytics Project\LP-1-Project\project-root\models\funding_model.joblib
+2025-04-17 01:58:34,473 - INFO - Starting success model training
+2025-04-17 01:59:57,723 - INFO - 
+Success Prediction Classification Metrics:
+2025-04-17 01:59:57,774 - INFO -               precision    recall  f1-score   support
+
+           0       0.69      0.62      0.65       117
+           1       0.53      0.60      0.56        82
+
+    accuracy                           0.61       199
+   macro avg       0.61      0.61      0.61       199
+weighted avg       0.62      0.61      0.62       199
+
+2025-04-17 01:59:57,775 - INFO - Confusion Matrix:
+2025-04-17 01:59:57,787 - INFO - [[73 44]
+ [33 49]]
+2025-04-17 01:59:58,109 - INFO - Best parameters: {'classifier__class_weight': 'balanced', 'classifier__max_depth': 20, 'classifier__min_samples_split': 5, 'classifier__n_estimators': 100}
+2025-04-17 01:59:58,109 - INFO - Success model saved to F:\school\Azubi Africa\LP1 Data Analytics Project\LP-1-Project\project-root\models\success_model.joblib
+2025-04-17 01:59:58,124 - INFO - Starting industry model training
+2025-04-17 01:59:58,180 - ERROR - Error in training industry model: The least populated class in y has only 1 member, which is too few. The minimum number of groups for any class cannot be less than 2.
+Traceback (most recent call last):
+  File "f:\school\Azubi Africa\LP1 Data Analytics Project\LP-1-Project\project-root\train_models.py", line 284, in train_industry_model
+    X_train, X_test, y_train, y_test = train_test_split(
+                                       ^^^^^^^^^^^^^^^^^
+  File "C:\Users\MoseS\AppData\Local\Programs\Python\Python312\Lib\site-packages\sklearn\utils\_param_validation.py", line 216, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MoseS\AppData\Local\Programs\Python\Python312\Lib\site-packages\sklearn\model_selection\_split.py", line 2872, in train_test_split
+    train, test = next(cv.split(X=arrays[0], y=stratify))
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MoseS\AppData\Local\Programs\Python\Python312\Lib\site-packages\sklearn\model_selection\_split.py", line 1909, in split
+    for train, test in self._iter_indices(X, y, groups):
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MoseS\AppData\Local\Programs\Python\Python312\Lib\site-packages\sklearn\model_selection\_split.py", line 2318, in _iter_indices
+    raise ValueError(
+ValueError: The least populated class in y has only 1 member, which is too few. The minimum number of groups for any class cannot be less than 2.
+2025-04-17 01:59:58,466 - ERROR - Model training failed
+Traceback (most recent call last):
+  File "f:\school\Azubi Africa\LP1 Data Analytics Project\LP-1-Project\project-root\train_models.py", line 335, in main
+    train_industry_model(TRAINING_DATA_FILE)
+  File "f:\school\Azubi Africa\LP1 Data Analytics Project\LP-1-Project\project-root\train_models.py", line 284, in train_industry_model
+    X_train, X_test, y_train, y_test = train_test_split(
+                                       ^^^^^^^^^^^^^^^^^
+  File "C:\Users\MoseS\AppData\Local\Programs\Python\Python312\Lib\site-packages\sklearn\utils\_param_validation.py", line 216, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MoseS\AppData\Local\Programs\Python\Python312\Lib\site-packages\sklearn\model_selection\_split.py", line 2872, in train_test_split
+    train, test = next(cv.split(X=arrays[0], y=stratify))
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MoseS\AppData\Local\Programs\Python\Python312\Lib\site-packages\sklearn\model_selection\_split.py", line 1909, in split
+    for train, test in self._iter_indices(X, y, groups):
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MoseS\AppData\Local\Programs\Python\Python312\Lib\site-packages\sklearn\model_selection\_split.py", line 2318, in _iter_indices
+    raise ValueError(
+ValueError: The least populated class in y has only 1 member, which is too few. The minimum number of groups for any class cannot be less than 2.
+2025-04-19 05:12:16,413 - INFO - Starting model training pipeline
+2025-04-19 05:12:16,413 - INFO - Starting funding model training
+2025-04-19 05:12:16,761 - WARNING - Found 166 NaN values in target variable. Dropping these rows.
+2025-04-19 05:12:16,818 - INFO - Data shape after dropping NaN values: (826, 8)
+2025-04-19 05:17:59,377 - INFO - 
+Funding Prediction Regression Metrics:
+2025-04-19 05:17:59,378 - INFO - MAE: 1.4291
+2025-04-19 05:17:59,379 - INFO - MSE: 3.2302
+2025-04-19 05:17:59,379 - INFO - RMSE: 1.7973
+2025-04-19 05:17:59,379 - INFO - R2: 0.0119
+2025-04-19 05:18:00,057 - INFO - Best parameters: {'regressor__max_depth': 10, 'regressor__min_samples_split': 5, 'regressor__n_estimators': 200}
+2025-04-19 05:18:00,057 - INFO - Funding model saved to F:\school\Azubi Africa\LP1 Data Analytics Project\LP-1-Project\project-root\models\funding_model.joblib
+2025-04-19 05:18:00,059 - INFO - Starting success model training
+2025-04-19 05:26:09,899 - INFO - 
+Success Prediction Classification Metrics:
+2025-04-19 05:26:09,931 - INFO -               precision    recall  f1-score   support
+
+           0       0.69      0.62      0.65       117
+           1       0.53      0.60      0.56        82
+
+    accuracy                           0.61       199
+   macro avg       0.61      0.61      0.61       199
+weighted avg       0.62      0.61      0.62       199
+
+2025-04-19 05:26:09,946 - INFO - Confusion Matrix:
+2025-04-19 05:26:10,870 - INFO - [[73 44]
+ [33 49]]
+2025-04-19 05:26:11,273 - INFO - Best parameters: {'classifier__class_weight': 'balanced', 'classifier__max_depth': 20, 'classifier__min_samples_split': 5, 'classifier__n_estimators': 100}
+2025-04-19 05:26:11,273 - INFO - Success model saved to F:\school\Azubi Africa\LP1 Data Analytics Project\LP-1-Project\project-root\models\success_model.joblib
+2025-04-19 05:26:11,288 - INFO - Starting industry model training
+2025-04-19 05:26:11,792 - ERROR - Error in training industry model: The least populated class in y has only 1 member, which is too few. The minimum number of groups for any class cannot be less than 2.
+Traceback (most recent call last):
+  File "f:\school\Azubi Africa\LP1 Data Analytics Project\LP-1-Project\project-root\train_models.py", line 284, in train_industry_model
+    X_train, X_test, y_train, y_test = train_test_split(
+                                       ^^^^^^^^^^^^^^^^^
+  File "C:\Users\MoseS\AppData\Local\Programs\Python\Python312\Lib\site-packages\sklearn\utils\_param_validation.py", line 216, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MoseS\AppData\Local\Programs\Python\Python312\Lib\site-packages\sklearn\model_selection\_split.py", line 2872, in train_test_split
+    train, test = next(cv.split(X=arrays[0], y=stratify))
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MoseS\AppData\Local\Programs\Python\Python312\Lib\site-packages\sklearn\model_selection\_split.py", line 1909, in split
+    for train, test in self._iter_indices(X, y, groups):
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MoseS\AppData\Local\Programs\Python\Python312\Lib\site-packages\sklearn\model_selection\_split.py", line 2318, in _iter_indices
+    raise ValueError(
+ValueError: The least populated class in y has only 1 member, which is too few. The minimum number of groups for any class cannot be less than 2.
+2025-04-19 05:26:12,160 - ERROR - Model training failed
+Traceback (most recent call last):
+  File "f:\school\Azubi Africa\LP1 Data Analytics Project\LP-1-Project\project-root\train_models.py", line 335, in main
+    train_industry_model(TRAINING_DATA_FILE)
+  File "f:\school\Azubi Africa\LP1 Data Analytics Project\LP-1-Project\project-root\train_models.py", line 284, in train_industry_model
+    X_train, X_test, y_train, y_test = train_test_split(
+                                       ^^^^^^^^^^^^^^^^^
+  File "C:\Users\MoseS\AppData\Local\Programs\Python\Python312\Lib\site-packages\sklearn\utils\_param_validation.py", line 216, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MoseS\AppData\Local\Programs\Python\Python312\Lib\site-packages\sklearn\model_selection\_split.py", line 2872, in train_test_split
+    train, test = next(cv.split(X=arrays[0], y=stratify))
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MoseS\AppData\Local\Programs\Python\Python312\Lib\site-packages\sklearn\model_selection\_split.py", line 1909, in split
+    for train, test in self._iter_indices(X, y, groups):
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MoseS\AppData\Local\Programs\Python\Python312\Lib\site-packages\sklearn\model_selection\_split.py", line 2318, in _iter_indices
+    raise ValueError(
+ValueError: The least populated class in y has only 1 member, which is too few. The minimum number of groups for any class cannot be less than 2.
