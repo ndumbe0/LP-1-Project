@@ -1,26 +1,26 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-import joblib  # For loading pre-trained models
+import joblib  
 
 def clean_data(df):
-    # Convert 'Founded' to numeric, handling errors by coercion
-    df['Founded'] = pd.to_numeric(df['Founded'], errors='coerce')
+    # Convert 'Year Founded' to numeric, handling errors by coercion
+    df['Year Founded'] = pd.to_numeric(df['Year Founded'], errors='coerce')
 
-    # Convert 'Amount' to numeric, handling missing values
-    df['Amount'] = pd.to_numeric(df['Amount'], errors='coerce')
+   
+    df['Amount in ($)'] = pd.to_numeric(df['Amount in ($)'], errors='coerce')
 
-    # Drop rows where 'Amount' or 'Founded' is NaN
-    df = df.dropna(subset=['Amount', 'Founded'])
+   
+    df = df.dropna(subset=['Amount in ($)', 'Year Founded'])
 
-    # Fill missing values in other columns with a placeholder (e.g., 'Unknown')
+    
     df = df.fillna('Unknown')
 
     # Standardize column names (optional, but good practice)
     df.columns = df.columns.str.replace('[^A-Za-z0-9_]+', '', regex=True)
-    df.rename(columns={'Company_Name': 'CompanyName', 'Head_Quarter': 'HeadQuarter', 'About_Company': 'AboutCompany'}, inplace=True)
+    df.rename(columns={'Company_Name': 'CompanyName', 'Head_Quarter': 'Head Quarter', 'About_Company': 'AboutCompany'}, inplace=True)
    # Keep only necessary columns
-    df = df[['CompanyName', 'Founded', 'HeadQuarter', 'Industry', 'AboutCompany', 'Founders', 'Investor', 'Amount', 'RoundSeries']]
+    df = df[['CompanyName', 'Year Founded', 'Head Quarter', 'Industry In', 'AboutCompany', 'Founders', 'Investor', 'Amount in ($)', 'Funding Round/Series']]
 
     return df
 
@@ -35,12 +35,12 @@ def main():
             st.write("Original Data:")
             st.dataframe(df)
 
-            # Clean the data
-            cleaned_df = clean_data(df.copy())  # Use a copy to avoid modifying the original DataFrame
+            
+            cleaned_df = clean_data(df.copy())  
             st.write("Cleaned Data:")
             st.dataframe(cleaned_df)
 
-            # Store the cleaned data in Streamlit session state
+            
             st.session_state['cleaned_data'] = cleaned_df
 
             st.success("Data uploaded and cleaned successfully! Navigate to other pages.")
