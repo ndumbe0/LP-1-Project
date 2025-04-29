@@ -1,4 +1,4 @@
-import streamlit as st HEAD
+import streamlit as st 
 import sys
 import os
 import pandas as pd
@@ -18,7 +18,7 @@ st.set_page_config(page_title="Startup Analyzer", page_icon="📈")
 
 
 st.sidebar.title("Navigation")
-page = st.sidebar.radio("Go to", ("Home", "Funding Predictor", "Startup Success", "Industry Classifier"))
+page = st.sidebar.radio("Go to", ("Home", "Funding Predictor", "Startup Success", "Industry In Classifier"))
 
  
 
@@ -26,7 +26,7 @@ page_modules = {
     "Home": "1__Home",
     "Funding Predictor": "2__Funding_Predictor",
     "Startup Success": "3__Startup_Success",
-    "Industry Classifier": "4__Industry_Classifier",
+    "Industry In Classifier": "4__Industry_Classifier",
 }
 
 
@@ -38,7 +38,7 @@ if page == "Home":
     - **Home**: Upload and clean your startup data.
     - **Funding Predictor**: Predict funding amounts based on startup data.
     - **Startup Success**: Predict the success probability of startups.
-    - **Industry Classifier**: Classify startups into industries based on their descriptions.
+    - **Industry In Classifier**: Classify startups into industries based on their descriptions.
     """)
 else:
     
@@ -58,21 +58,21 @@ def predict_api(input_data):
     df = pd.DataFrame(input_data)
     
     # Funding prediction
-    X_funding = df[['Founded']]
+    X_funding = df[['Year Founded']]
     X_funding = X_funding.fillna(X_funding.mean())
     funding_predictions = funding_model.predict(X_funding)
     
     # Success prediction
-    X_success = df[['Industry', 'Founded']]
-    X_success = pd.get_dummies(X_success, columns=['Industry'], drop_first=True)
+    X_success = df[['Industry In', 'Year Founded']]
+    X_success = pd.get_dummies(X_success, columns=['Industry In'], drop_first=True)
     X_success = X_success.fillna(X_success.mean())
     success_predictions = success_model.predict(X_success)
     
-    # Industry classification
+    # Industry In classification
     vectorizer = TfidfVectorizer()
     X_industry = vectorizer.fit_transform(df['AboutCompany'])
     industry_predictions = industry_model.predict(X_industry)
-    industry_mapping = {0: 'Industry1', 1: 'Industry2', 2: 'Industry3'}
+    industry_mapping = {0: 'Industry In1', 1: 'Industry In2', 2: 'Industry In3'}
     predicted_industries = [industry_mapping.get(pred, 'Unknown') for pred in industry_predictions]
     
     # Return predictions
@@ -85,17 +85,17 @@ def predict_api(input_data):
 # Run the app only if executed directly
 if __name__ == "__main__":
     st.write("Streamlit app is running...")
-=======
+
 # Load the selected page
 if page == "Home":
     import Home
     Home.main()
-elif page == "Funding Predictor":
+elif page == "_Funding_Predictor":
     import Funding_Predictor
     Funding_Predictor.main()
 elif page == "Startup Success":
     import Startup_Success
     Startup_Success.main()
-elif page == "Industry Classifier":
+elif page == "Industry In Classifier":
     import Industry_Classifier
     Industry_Classifier.main()
