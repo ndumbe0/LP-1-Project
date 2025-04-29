@@ -27,7 +27,7 @@ def main():
         st.write(predictions)
 
         
-        industry_mapping = {0: 'Industry1', 1: 'Industry2', 2: 'Industry3'} 
+        industry_mapping = {0: 'Industry In1', 1: 'Industry In2', 2: 'Industry In3'} 
         predicted_industries = [industry_mapping.get(pred, 'Unknown') for pred in predictions] 
         st.write("Predicted Industries:")
         st.write(predicted_industries)
