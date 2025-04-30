@@ -8,7 +8,6 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 
 # Set page config
 st.set_page_config(
-    page_title="Startup Analyzer",
     page_icon="🚀",
     layout="wide"
 )
