@@ -31,8 +31,8 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # Constants
-OUTPUT_DIR = "F:\\school\\Azubi Africa\\LP1 Data Analytics Project\\LP-1-Project\\project-root\\models"
-TRAINING_DATA_FILE = "F:\\school\\Azubi Africa\\LP1 Data Analytics Project\\LP-1-Project\\data\\trainingdata.csv"
+OUTPUT_DIR = "models"
+TRAINING_DATA_FILE = "data\\trainingdata.csv"
 
 def ensure_directory_exists(directory: str) -> None:
     """Create directory if it doesn't exist."""
@@ -109,6 +109,16 @@ def train_funding_model(training_data_file: str) -> None:
         current_year = datetime.now().year
         df['Company Age'] = current_year - df['Founded_scaled']
         df['Log Amount'] = np.log1p(df['Amount in ($)'])
+        
+        # Check for NaN in target variable
+        if df['Log Amount'].isna().any():
+            logger.warning(f"Found {df['Log Amount'].isna().sum()} NaN values in target variable. Dropping these rows.")
+            df = df.dropna(subset=['Log Amount'])
+            logger.info(f"Data shape after dropping NaN values: {df.shape}")
+            
+        # Additional check: ensure we have enough data after cleaning
+        if len(df) < 10:
+            raise ValueError(f"Insufficient data after cleaning: {len(df)} rows remaining")
         
         # Check for NaN in target variable
         if df['Log Amount'].isna().any():
@@ -199,6 +209,16 @@ def train_success_model(training_data_file: str) -> None:
         current_year = datetime.now().year
         df['Company Age'] = current_year - df['Founded_scaled']
         df['Success'] = (df['Amount in ($)'] > df['Amount in ($)'].median()).astype(int)
+        
+        # Check for NaN in target variable
+        if df['Success'].isna().any():
+            logger.warning(f"Found {df['Success'].isna().sum()} NaN values in target variable. Dropping these rows.")
+            df = df.dropna(subset=['Success'])
+            logger.info(f"Data shape after dropping NaN values: {df.shape}")
+            
+        # Additional check: ensure we have enough data after cleaning
+        if len(df) < 10:
+            raise ValueError(f"Insufficient data after cleaning: {len(df)} rows remaining")
         
         # Prepare features and target
         numeric_features = ['Founded_scaled', 'Company Age']
