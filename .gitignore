@@ -1,1 +1,13 @@
-/.env\
+.env
+**/.env
+.venv/
+venv/
+ndumb.venv/
+__pycache__/
+*.pyc
+.vscode/
+.obsidian/
+*.log
+models/*.joblib
+project-root/models/*.joblib
+Untitled.base

@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  startup-analyzer:
+    build: .
+    container_name: startup-funding-analyzer
+    ports:
+      - "8501:8501"
+    volumes:
+      - .:/app
+      - /app/__pycache__
+    environment:
+      - GOOGLE_AI_API_KEY=${GOOGLE_AI_API_KEY:-}
+    restart: unless-stopped
