@@ -1,0 +1,52 @@
+{
+  "funding": {
+    "Linear Regression": {
+      "MAE": 1.3579,
+      "MSE": 2.8784,
+      "RMSE": 1.6966,
+      "R2": 0.0952
+    },
+    "Random Forest": {
+      "MAE": 1.4656,
+      "MSE": 3.2767,
+      "RMSE": 1.8102,
+      "R2": -0.03
+    },
+    "Gradient Boosting": {
+      "MAE": 1.4287,
+      "MSE": 3.1085,
+      "RMSE": 1.7631,
+      "R2": 0.0229
+    },
+    "Ridge": {
+      "MAE": 1.3579,
+      "MSE": 2.8783,
+      "RMSE": 1.6966,
+      "R2": 0.0953
+    }
+  },
+  "success": {
+    "Logistic Regression": {
+      "Accuracy": 0.6368,
+      "F1": 0.6091,
+      "Precision": 0.6593,
+      "Recall": 0.566
+    },
+    "Random Forest": {
+      "Accuracy": 0.533,
+      "F1": 0.5561,
+      "Precision": 0.5299,
+      "Recall": 0.5849
+    },
+    "Gradient Boosting": {
+      "Accuracy": 0.6274,
+      "F1": 0.5864,
+      "Precision": 0.6588,
+      "Recall": 0.5283
+    }
+  },
+  "industry": {
+    "Accuracy": 0.9906,
+    "F1": 0.9868
+  }
+}
