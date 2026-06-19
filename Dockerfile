@@ -13,6 +13,9 @@ COPY . .
 
 RUN python eda_cleaning.py && python train_models.py
 
+RUN useradd -m -u 1000 appuser && chown -R appuser:appuser /app
+USER appuser
+
 EXPOSE 8501
 
 HEALTHCHECK CMD curl --fail http://localhost:8501/_stcore/health || exit 1

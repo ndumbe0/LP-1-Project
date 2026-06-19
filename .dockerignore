@@ -1,0 +1,12 @@
+.env
+**/.env
+.git/
+.gitignore
+__pycache__/
+*.pyc
+.vscode/
+.obsidian/
+*.log
+models/*.joblib
+project-root/
+Untitled.base
