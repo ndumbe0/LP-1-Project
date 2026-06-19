@@ -1,6 +1,8 @@
 import streamlit as st
 import pandas as pd
 import joblib
+import hashlib
+import os
 import matplotlib.pyplot as plt
 import seaborn as sns
 import plotly.express as px
@@ -12,12 +14,55 @@ st.set_page_config(
     layout="wide"
 )
 
+MODELS_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'models')
+
 # Initialize session state
 if 'cleaned_data' not in st.session_state:
     st.session_state['cleaned_data'] = None
 
+
+def _sanitize_csv_value(val):
+    if isinstance(val, str):
+        val = val.strip()
+        if val and val[0] in ('=', '+', '-', '@', '\t', '\n', '\r', '|'):
+            val = "'" + val
+    return val
+
+
+def _verify_model_hash(path):
+    hash_path = path + '.sha256'
+    if not os.path.exists(hash_path):
+        return True
+    with open(hash_path) as f:
+        expected_hash = f.read().strip()
+    sha256 = hashlib.sha256()
+    with open(path, 'rb') as f:
+        for chunk in iter(lambda: f.read(65536), b''):
+            sha256.update(chunk)
+    return sha256.hexdigest() == expected_hash
+
+
+def _load_model_safe(path):
+    if not os.path.exists(path):
+        st.error(f"Model not found at {path}")
+        return None
+    if not _verify_model_hash(path):
+        st.error(f"Model {path} integrity check failed.")
+        return None
+    try:
+        return joblib.load(path)
+    except Exception as e:
+        st.error(f"Error loading model: {e}")
+        return None
+
+
 # Data cleaning function
 def clean_data(df):
+    df = df.copy()
+    
+    for col in df.select_dtypes(include=['object']).columns:
+        df[col] = df[col].astype(str).apply(_sanitize_csv_value)
+
     # Convert numeric columns
     df['Year Founded'] = pd.to_numeric(df['Year Founded'], errors='coerce')
     df['Amount in ($)'] = pd.to_numeric(df['Amount in ($)'], errors='coerce')
@@ -75,9 +120,11 @@ def funding_predictor_page():
         st.dataframe(df.head())
         
         try:
-            # Load model (in a real app, this would be a proper path)
-            model = joblib.load('funding_model.joblib')
-            
+            model_path = os.path.join(MODELS_DIR, 'funding_model.joblib')
+            model = _load_model_safe(model_path)
+            if model is None:
+                return
+
             # Prepare features
             X = df[['Year Founded']]
             X = X.fillna(X.mean())
@@ -114,8 +161,10 @@ def startup_success_page():
         st.dataframe(df.head())
         
         try:
-            # Load model
-            model = joblib.load('success_model.joblib')
+            model_path = os.path.join(MODELS_DIR, 'success_model.joblib')
+            model = _load_model_safe(model_path)
+            if model is None:
+                return
             
             # Prepare features
             X = df[['Industry In', 'Year Founded']]
@@ -151,8 +200,10 @@ def industry_classifier_page():
         st.dataframe(df.head())
         
         try:
-            # Load model and vectorizer
-            model = joblib.load('industry_model.joblib')
+            model_path = os.path.join(MODELS_DIR, 'industry_model.joblib')
+            model = _load_model_safe(model_path)
+            if model is None:
+                return
             vectorizer = TfidfVectorizer()
             
             # Prepare features

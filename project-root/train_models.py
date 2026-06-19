@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+import hashlib
 from sklearn.model_selection import train_test_split, GridSearchCV
 from sklearn.linear_model import LinearRegression
 from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor
@@ -33,6 +34,19 @@ logger = logging.getLogger(__name__)
 # Constants
 OUTPUT_DIR = "models"
 TRAINING_DATA_FILE = "data\\trainingdata.csv"
+
+
+def _write_model_hash(model_path):
+    """Generate and save SHA256 hash file for model integrity verification."""
+    sha256 = hashlib.sha256()
+    with open(model_path, 'rb') as f:
+        for chunk in iter(lambda: f.read(65536), b''):
+            sha256.update(chunk)
+    hash_path = model_path + '.sha256'
+    with open(hash_path, 'w') as f:
+        f.write(sha256.hexdigest())
+    logger.info(f"Hash saved to {hash_path}")
+
 
 def ensure_directory_exists(directory: str) -> None:
     """Create directory if it doesn't exist."""
@@ -181,6 +195,7 @@ def train_funding_model(training_data_file: str) -> None:
         ensure_directory_exists(OUTPUT_DIR)
         model_path = os.path.join(OUTPUT_DIR, 'funding_model.joblib')
         joblib.dump(grid_search.best_estimator_, model_path)
+        _write_model_hash(model_path)
         logger.info(f"Best parameters: {grid_search.best_params_}")
         logger.info(f"Funding model saved to {model_path}")
         
@@ -274,6 +289,7 @@ def train_success_model(training_data_file: str) -> None:
         ensure_directory_exists(OUTPUT_DIR)
         model_path = os.path.join(OUTPUT_DIR, 'success_model.joblib')
         joblib.dump(grid_search.best_estimator_, model_path)
+        _write_model_hash(model_path)
         logger.info(f"Best parameters: {grid_search.best_params_}")
         logger.info(f"Success model saved to {model_path}")
         
@@ -366,6 +382,7 @@ def train_industry_model(training_data_file: str) -> None:
         ensure_directory_exists(OUTPUT_DIR)
         model_path = os.path.join(OUTPUT_DIR, 'industry_model.joblib')
         joblib.dump(grid_search.best_estimator_, model_path)
+        _write_model_hash(model_path)
         logger.info(f"Best parameters: {grid_search.best_params_}")
         logger.info(f"Industry model saved to {model_path}")
         

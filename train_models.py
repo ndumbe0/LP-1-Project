@@ -5,11 +5,10 @@ Trains 3+ models with hyperparameter tuning, evaluates, and saves best model.
 import pandas as pd
 import numpy as np
 import os
-import warnings
+import hashlib
 import logging
 import json
 from datetime import datetime
-warnings.filterwarnings('ignore')
 
 from sklearn.model_selection import train_test_split, GridSearchCV, cross_val_score
 from sklearn.preprocessing import StandardScaler, LabelEncoder
@@ -39,6 +38,18 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_DIR = os.path.join(BASE_DIR, 'data')
 MODELS_DIR = os.path.join(BASE_DIR, 'models')
 os.makedirs(MODELS_DIR, exist_ok=True)
+
+
+def _write_model_hash(model_path):
+    """Generate and save SHA256 hash file for model integrity verification."""
+    sha256 = hashlib.sha256()
+    with open(model_path, 'rb') as f:
+        for chunk in iter(lambda: f.read(65536), b''):
+            sha256.update(chunk)
+    hash_path = model_path + '.sha256'
+    with open(hash_path, 'w') as f:
+        f.write(sha256.hexdigest())
+    logger.info(f"Hash saved to {hash_path}")
 
 
 def load_clean_data():
@@ -193,7 +204,9 @@ def train_funding_model(df):
         'features': features,
         'type': 'regression'
     }
-    joblib.dump(pipeline, os.path.join(MODELS_DIR, 'funding_pipeline.pkl'))
+    model_path = os.path.join(MODELS_DIR, 'funding_pipeline.pkl')
+    joblib.dump(pipeline, model_path)
+    _write_model_hash(model_path)
     logger.info(f"Best funding model saved. R2: {max(r2_tuned, r2_score(y_test, best_model.predict(X_test))):.4f}")
 
     return results
@@ -272,7 +285,9 @@ def train_success_model(df):
         'type': 'classification',
         'classes': ['Not Successful', 'Successful']
     }
-    joblib.dump(pipeline, os.path.join(MODELS_DIR, 'success_pipeline.pkl'))
+    model_path = os.path.join(MODELS_DIR, 'success_pipeline.pkl')
+    joblib.dump(pipeline, model_path)
+    _write_model_hash(model_path)
     logger.info("Best success model saved.")
 
     return results
@@ -314,7 +329,9 @@ def train_industry_model(df):
         'model': grid.best_estimator_,
         'type': 'text_classification'
     }
-    joblib.dump(pipeline, os.path.join(MODELS_DIR, 'industry_pipeline.pkl'))
+    model_path = os.path.join(MODELS_DIR, 'industry_pipeline.pkl')
+    joblib.dump(pipeline, model_path)
+    _write_model_hash(model_path)
     logger.info("Best industry model saved.")
 
     return {'Accuracy': acc, 'F1': f1}
