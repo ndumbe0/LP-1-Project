@@ -10,12 +10,15 @@ import os
 import sys
 import hashlib
 import json
-import matplotlib.pyplot as plt
-import seaborn as sns
+import logging
+from datetime import datetime
 import plotly.express as px
 from dotenv import load_dotenv
 
 load_dotenv()
+
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+logger = logging.getLogger(__name__)
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_DIR = os.path.join(BASE_DIR, 'data')
@@ -296,12 +299,17 @@ def render_funding_predictor():
 
     avail_features = [c for c in features if c in df.columns]
     if len(avail_features) < len(features):
-        st.warning(f"Using {len(avail_features)}/{len(features)} available features")
+        st.warning(f"Missing features: {len(avail_features)}/{len(features)} available. Please ensure all columns exist.")
         return
 
-    X = scaler.transform(df[avail_features])
-    predictions_log = model.predict(X)
-    df['Predicted Funding ($)'] = np.expm1(predictions_log)
+    try:
+        X = scaler.transform(df[avail_features])
+        predictions_log = model.predict(X)
+        df['Predicted Funding ($)'] = np.expm1(predictions_log)
+    except Exception as e:
+        st.error(f'Prediction error: {e}')
+        logger.error(f'Funding prediction failed: {e}')
+        return
 
     st.subheader('Prediction Results')
     cols = ['CompanyName'] if 'CompanyName' in df.columns else []
@@ -350,20 +358,25 @@ def render_success_predictor():
             df[col] = pd.factorize(df[c].astype(str))[0]
 
     avail_features = [c for c in features if c in df.columns]
-    X = scaler.transform(df[avail_features])
+    try:
+        X = scaler.transform(df[avail_features])
 
-    if hasattr(model, 'predict_proba'):
-        proba = model.predict_proba(X)
-        df['Success Probability'] = proba[:, 1]
-        df['Success Prediction'] = (proba[:, 1] > 0.5).astype(int)
-    else:
-        preds = model.predict(X)
-        if preds.dtype in [np.float64, np.float32]:
-            df['Success Probability'] = preds
-            df['Success Prediction'] = (preds > 0.5).astype(int)
+        if hasattr(model, 'predict_proba'):
+            proba = model.predict_proba(X)
+            df['Success Probability'] = proba[:, 1]
+            df['Success Prediction'] = (proba[:, 1] > 0.5).astype(int)
         else:
-            df['Success Prediction'] = preds
-            df['Success Probability'] = preds
+            preds = model.predict(X)
+            if preds.dtype in [np.float64, np.float32]:
+                df['Success Probability'] = preds
+                df['Success Prediction'] = (preds > 0.5).astype(int)
+            else:
+                df['Success Prediction'] = preds
+                df['Success Probability'] = preds
+    except Exception as e:
+        st.error(f'Prediction error: {e}')
+        logger.error(f'Success prediction failed: {e}')
+        return
 
     st.subheader('Success Predictions')
     cols = ['CompanyName'] if 'CompanyName' in df.columns else []
@@ -419,8 +432,12 @@ def render_industry_classifier():
         if st.button('Classify'):
             manual_text = st.session_state.get('manual_text', '')
             if manual_text:
-                pred = model.predict([manual_text])[0]
-                st.success(f'Predicted Industry: **{pred}**')
+                try:
+                    pred = model.predict([manual_text])[0]
+                    st.success(f'Predicted Industry: **{pred}**')
+                except Exception as e:
+                    st.error(f'Classification failed: {e}')
+                    logger.error(f'Manual classification failed: {e}')
         return
 
     df = df.dropna(subset=[text_col])
@@ -428,7 +445,12 @@ def render_industry_classifier():
         st.warning('No descriptions available.')
         return
 
-    df['Predicted Industry'] = model.predict(df[text_col].astype(str))
+    try:
+        df['Predicted Industry'] = model.predict(df[text_col].astype(str))
+    except Exception as e:
+        st.error(f'Classification error: {e}')
+        logger.error(f'Industry classification failed: {e}')
+        return
 
     st.subheader('Industry Classification Results')
     cols = ['CompanyName'] if 'CompanyName' in df.columns else []
@@ -525,7 +547,6 @@ def main():
 
     pages[selection]()
 
-    from datetime import datetime
     st.sidebar.markdown('---')
     st.sidebar.caption(f'© {datetime.now().year} Startup Analyzer')
 
