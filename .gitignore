@@ -1,13 +1,55 @@
+# Python
 .env
-**/.env
 .venv/
 venv/
-ndumb.venv/
 __pycache__/
 *.pyc
+*.pyo
+*.egg-info/
+*.egg
+*.dist-info/
+.eggs/
+
+# IDE / Editor
 .vscode/
+.idea/
+*.swp
+*.swo
+*~
 .obsidian/
+
+# Jupyter / Notebook
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
 *.log
-models/*.joblib
-project-root/models/*.joblib
+model_training.log
+
+# Virtual environments
+*.venv
+.env2
+env/
+ENV/
+
+# Test / Coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Kilo / AI tooling
+.kilo/node_modules/
+.kilo/.cache/
+
+# Project root (duplicate dev dir)
+project-root/
+
+# Data artifacts
+data/cleaned_data_startup_funding2018.csv
+data/cleaned_data_startup_funding2019.csv
+
+# Stray
 Untitled.base

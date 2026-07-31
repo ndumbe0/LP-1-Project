@@ -1,12 +1,55 @@
-.env
-**/.env
+# Git / CI
 .git/
 .gitignore
+.gitattributes
+
+# Python
 __pycache__/
 *.pyc
+*.pyo
+*.egg-info/
+*.egg
+.venv/
+venv/
+env/
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# IDE / Editor
 .vscode/
-.obsidian/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Jupyter / Notebook
+.ipynb_checkpoints/
+
+# Logs
 *.log
-models/*.joblib
-project-root/
+model_training.log
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Kilo / AI tooling
+.kilo/
+
+# Stray files
 Untitled.base
+
+# Project root (duplicate dev directory)
+project-root/
+
+# Streamlit cache
+.streamlit/
+
+# Model artifacts that are regenerated at build time
+models/*.joblib
