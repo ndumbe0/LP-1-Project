@@ -38,6 +38,7 @@ model_training.log
 .pytest_cache/
 .coverage
 htmlcov/
+.ruff_cache/
 
 # Kilo / AI tooling
 .kilo/

@@ -1,176 +1,156 @@
-# 🚀 Startup Funding Analyzer
+# Startup Funding Analyzer
 
-![Python](https://img.shields.io/badge/Python-3.10%2B-blue?style=for-the-badge&logo=python)
-![Streamlit](https://img.shields.io/badge/Streamlit-1.28%2B-FF4B4B?style=for-the-badge&logo=streamlit)
-![Scikit-Learn](https://img.shields.io/badge/scikit--learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white)
-![Docker](https://img.shields.io/badge/Docker-24.0%2B-2496ED?style=for-the-badge&logo=docker)
-![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
+![Python](https://img.shields.io/badge/Python-3.10%2B-2F6CAD?style=flat-square&logo=python&logoColor=white)
+![Streamlit](https://img.shields.io/badge/Streamlit-dashboard-FF4B4B?style=flat-square&logo=streamlit&logoColor=white)
+![scikit-learn](https://img.shields.io/badge/scikit--learn-models-F7931E?style=flat-square&logo=scikitlearn&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-ready-2496ED?style=flat-square&logo=docker&logoColor=white)
+![License](https://img.shields.io/badge/License-MIT-2E7D32?style=flat-square)
 
-> **Short Summary:** An end-to-end machine learning pipeline and web application that analyzes Indian startup funding data (1982–2021), builds predictive models for funding amounts and startup success, classifies industries from company descriptions, and provides an interactive Streamlit dashboard with an AI-powered Gemini assistant.
+![Startup Funding Analyzer cover](images/cover.png)
 
----
+Startup Funding Analyzer is a data science project for exploring Indian startup funding activity and scoring new startup concepts against similar historical companies. It combines a cleaned multi-year dataset, repeatable model training, an interactive Streamlit app, Docker support, and repository security checks.
 
-## 📌 Executive Summary & Business Impact
+## What It Does
 
-* **The Problem:** Startup investors and founders lack a centralized, data-driven tool to understand funding trends, predict funding outcomes, and classify company industries from unstructured text across the Indian startup ecosystem.
-* **The Solution:** A full-stack Streamlit application backed by three machine learning models (regression, classification, text classification), containerized with Docker, and enhanced with a Gemini AI assistant for conversational insights.
-* **Key Metrics & Results:**
-  * **Funding Predictor (Ridge)** — R² ≈ 0.095, RMSE ≈ 1.70 (log-scale)
-  * **Success Predictor (Random Forest)** — Accuracy ≈ 63.7%, F1 ≈ 0.61
-  * **Industry Classifier (TF-IDF + Random Forest)** — Accuracy ≈ 99.1%, Weighted F1 ≈ 0.99
+- Cleans startup funding datasets from 2018-2021 into one canonical table.
+- Preserves both funding year and founded year, with an explicit flag when founded year is inferred.
+- Trains three model bundles: funding amount regression, funding-readiness classification, and industry classification from text.
+- Lets users score a startup idea and compare it with similar funded startups.
+- Supports batch CSV prediction for multiple startup concepts.
+- Ships with tests, CI, Dependabot, CodeQL, Bandit, and `pip-audit` configuration.
 
----
+## App Preview
 
-## 🏗️ System Architecture & Workflow
+| Funding trend | Startup hubs |
+| --- | --- |
+| ![Funding trend](images/funding_trend.png) | ![Top startup hubs](images/top_locations_funding.png) |
 
-```mermaid
-flowchart TD
-    A[Raw CSV Files] --> B[EDA & Data Cleaning<br/>eda_cleaning.py]
-    B --> C[Cleaned Dataset<br/>startup_funding_clean.csv]
-    C --> D[Feature Engineering<br/>+ Label Encoding<br/>+ Scaling]
-    D --> E[ML Model Training<br/>train_models.py]
-    E --> F[3 Trained Models:<br/>Funding, Success, Industry]
-    F --> G[Streamlit Web App<br/>app.py]
-    G --> H[Docker Container]
-    G --> I[Gemini AI Assistant]
-```
+| Funding distribution | Industry mix |
+| --- | --- |
+| ![Funding distribution](images/funding_distribution.png) | ![Industry mix](images/industry_pie.png) |
 
----
-
-## 🛠️ Tech Stack & Key Tools
-
-* **Core Language:** Python 3.10+
-* **Data Processing:** Pandas, NumPy
-* **Visualization:** Matplotlib, Seaborn, Plotly
-* **Machine Learning:** Scikit-Learn, XGBoost, Imbalanced-learn (SMOTE)
-* **API / UI Framework:** Streamlit
-* **AI / LLM:** Google Generative AI (Gemini 2.0 Flash)
-* **Deployment & Containerization:** Docker, Docker Compose
-* **Environment Management:** python-dotenv
-
----
-
-## 📂 Repository Directory Structure
+## Repository Layout
 
 ```text
-LP-1-Project/
-├── app.py                  # Streamlit multipage web application
-├── eda_cleaning.py          # EDA and data cleaning pipeline
-├── train_models.py          # ML model training with GridSearchCV + SMOTE
-├── requirements.txt         # Python dependencies (pinned)
-├── Dockerfile               # Secure Docker image definition
-├── docker-compose.yml       # Multi-service Docker configuration
-├── .env.example             # Environment variables template
-├── .gitignore               # Git ignore rules
-├── .dockerignore            # Docker build ignore rules
-├── LICENSE                  # MIT License
-├── README.md                # Documentation
-│
-├── data/                    # Raw and cleaned datasets
-│   ├── startup_funding_clean.csv
-│   ├── dbo.LP1_startup_funding2020.csv
-│   ├── dbo.LP1_startup_funding2021.csv
-│   ├── startup_funding2019.csv
-│   └── startup_funding2018.csv
-│
-├── models/                  # Trained model artifacts (gitignored)
-│   ├── funding_pipeline.pkl
-│   ├── success_pipeline.pkl
-│   └── industry_pipeline.pkl
-│
-├── images/                  # Visualization outputs
-│   ├── cover.png
-│   ├── funding_trend.png
-│   ├── top_locations_funding.png
-│   ├── funding_distribution.png
-│   ├── pandemic_impact.png
-│   ├── startups_per_year.png
-│   └── industry_pie.png
-│
-├── notebooks/               # EDA and modeling experiments
-│   └── Files/
-└── tests/                   # Unit tests (to be added)
+.
+├── app.py                         # Streamlit app
+├── eda_cleaning.py                # Data cleaning and visualization entrypoint
+├── train_models.py                # Model training entrypoint
+├── startup_funding/               # Reusable Python package
+│   ├── data.py                    # Schema mapping, cleaning, derived CSVs
+│   ├── features.py                # Shared feature engineering
+│   ├── training.py                # Model training and evaluation
+│   ├── prediction.py              # App and batch prediction helpers
+│   └── model_io.py                # Model hash verification
+├── tests/                         # Unit tests for cleaning and prediction pipelines
+├── data/                          # Raw, clean, split, and summary CSV files
+├── images/                        # README and app visuals
+├── models/                        # Trained model bundles plus SHA256 files
+├── .github/workflows/             # CI and CodeQL
+├── .github/dependabot.yml         # Dependency update schedule
+├── Dockerfile
+└── docker-compose.yml
 ```
 
----
+## Pipeline
 
-## ⚙️ Quickstart & Local Setup Guide
+```mermaid
+flowchart LR
+    A["Raw CSV files"] --> B["Schema normalization"]
+    B --> C["Clean startup table"]
+    C --> D["EDA artifacts"]
+    C --> E["Shared feature builder"]
+    E --> F["Funding regression"]
+    E --> G["Funding-readiness classifier"]
+    C --> H["Text industry classifier"]
+    F --> I["Streamlit app"]
+    G --> I
+    H --> I
+    C --> I
+```
 
-### Local Python Environment Setup
+## Model Summary
+
+The latest local training run writes detailed metrics to [`training_results.json`](training_results.json). The app reads the same file for its scorecards.
+
+| Model | Target | Main use |
+| --- | --- | --- |
+| Funding regression | Estimated funding amount in USD | Forecast likely funding range for a startup profile |
+| Funding-readiness classifier | Above-median funding probability | Show whether a concept resembles historically better-funded startups |
+| Industry classifier | Industry label from company description | Compare stated industry with text-inferred industry |
+
+The models are decision-support tools, not investment advice. The dataset is relatively small and covers a specific market/time window, so results should be interpreted as directional signals.
+
+## Quickstart
 
 ```bash
-git clone https://github.com/ndumbe0/LP-1-Project.git
-cd LP-1-Project
 python -m venv .venv
-# Windows:
-.venv\Scripts\activate
-# Linux/macOS:
 source .venv/bin/activate
-pip install -r requirements.txt
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt -r requirements-dev.txt
 
-# Generate cleaned data and train models
 python eda_cleaning.py
 python train_models.py
-
-# Launch the web app
+python -m pytest
 streamlit run app.py
 ```
 
-### Docker Setup
+On Windows PowerShell, activate the environment with:
 
-```bash
-# Build and run
-docker-compose up --build
-# Access at http://localhost:8501
-
-# Or manually:
-docker build -t startup-funding-analysis .
-docker run -d -p 8501:8501 \
-  --env-file .env \
-  startup-funding-analysis
+```powershell
+.venv\Scripts\Activate.ps1
 ```
 
-### AI Assistant Setup
+## Docker
 
-For the AI Assistant page to work:
+```bash
+docker compose up --build
+```
 
-1. Get a [Google AI Studio API key](https://aistudio.google.com/apikey)
-2. Copy `.env.example` to `.env` and fill in your key:
+Open `http://localhost:8501`. The container regenerates clean data and models at build time, runs as a non-root user, and exposes Streamlit on port `8501`.
+
+## Optional Gemini Assistant
+
+The core app does not require an API key. To enable the assistant page:
 
 ```bash
 cp .env.example .env
 ```
 
----
+Then add:
 
-## 🛡️ Security & Quality Standards
-
-* **Data Validation:** CSV formula injection protection via `_sanitize_csv_value()`.
-* **Prompt Injection Defense:** User inputs sanitized before sending to Gemini LLM.
-* **Model Integrity:** SHA256 hash verification on all model artifacts.
-* **Secrets Management:** API keys loaded from `.env` via `python-dotenv`.
-* **Non-Root Execution:** Containerized as non-root `appuser`.
-* **Dependency Pinning:** All packages have upper-bound version constraints.
-
----
-
-## 🧪 Testing
-
-```bash
-pip install pytest
-pytest tests/ -v
+```text
+GOOGLE_AI_API_KEY=your_key_here
 ```
 
----
+Never commit `.env`.
 
-## 👤 Author & Contact
+## Data Quality Notes
 
-* **GitHub:** [@ndumbe0](https://github.com/ndumbe0)
-* **Email:** ndumbemoses@gmail.com
-* **Organization:** Azubi Africa Data Science Cohort 7
+- Source schemas differ by year; the cleaner maps aliases such as `Company_Name`, `Company/Brand`, `Sector`, `Industry`, `What_it_does`, and `Round/Series`.
+- 2018 rows do not include founded year in the raw file, so the cleaner uses funding year as a conservative fallback and sets `Founded Imputed = true`.
+- Uploaded CSV values are sanitized to reduce spreadsheet formula injection risk.
+- Derived CSVs are written with stable LF line endings to keep diffs readable.
 
----
+## Security And Quality
 
-## 📄 License
+- CI runs Ruff, Pytest, import smoke tests, and `pip-audit`.
+- CodeQL is configured for Python code scanning.
+- Dependabot monitors Python requirements and GitHub Actions.
+- Model artifacts are verified with SHA256 hash files before loading.
+- The Streamlit app loads secrets only from local environment variables.
+- See [`SECURITY.md`](SECURITY.md) for vulnerability reporting guidance.
 
-This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
+## Milestones
+
+| Status | Milestone | Notes |
+| --- | --- | --- |
+| Done | Canonical data pipeline | Raw yearly files map into one clean dataset |
+| Done | Production app | Manual and batch prediction flows are available |
+| Done | Model artifact integrity | SHA256 verification protects loaded model bundles |
+| Done | CI and security automation | Tests, CodeQL, Dependabot, Bandit, and dependency audit are configured |
+| Next | Deployment | Publish the Streamlit app or Docker image after remote checks pass |
+
+## License
+
+This project is released under the MIT License. See [`LICENSE`](LICENSE).

@@ -39,8 +39,10 @@ ENV/
 .pytest_cache/
 .coverage
 htmlcov/
+.ruff_cache/
 
 # Kilo / AI tooling
+.kilo/
 .kilo/node_modules/
 .kilo/.cache/
 
