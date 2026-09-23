@@ -109,6 +109,20 @@ docker compose up --build
 
 Open `http://localhost:8501`. The container regenerates clean data and models at build time, runs as a non-root user, and exposes Streamlit on port `8501`.
 
+## Deploying on Render
+
+This is a Streamlit app, not a gunicorn/WSGI app, so Render's Python
+auto-detect fails with *"app.py does not export a top-level app"*. The
+included [`render.yaml`](render.yaml) blueprint fixes that.
+
+1. Push this repo to GitHub and in Render choose **New → Blueprint**.
+2. Render reads `render.yaml` automatically (build: `pip install -r
+   requirements.txt`, start: `streamlit run app.py --server.port=$PORT`).
+3. In the service's Environment tab set `GOOGLE_AI_API_KEY` (only needed for
+   the AI assistant page).
+
+Alternatively deploy as a **Docker** service using the repo `Dockerfile`.
+
 ## Optional Gemini Assistant
 
 The core app does not require an API key. To enable the assistant page:

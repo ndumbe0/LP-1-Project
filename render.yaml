@@ -1,0 +1,18 @@
+# Render blueprint — Streamlit apps are NOT gunicorn-compatible, so the
+# start command must be explicit or Render's Python auto-detect fails with
+# "app.py does not export a top-level app/application/handler".
+services:
+  - type: web
+    name: lp1-startup-funding-analyzer
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: streamlit run app.py --server.port=$PORT --server.address=0.0.0.0
+    healthCheckPath: /_stcore/health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.7
+      - key: PYTHONUNBUFFERED
+        value: "1"
+      - key: GOOGLE_AI_API_KEY # set the real value in the Render dashboard
+        sync: false
