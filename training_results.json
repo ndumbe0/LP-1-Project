@@ -1,52 +1,67 @@
 {
   "funding": {
-    "Linear Regression": {
-      "MAE": 1.3579,
-      "MSE": 2.8784,
-      "RMSE": 1.6966,
-      "R2": 0.0952
+    "best_model": "Random Forest",
+    "metrics": {
+      "MAE": 15570743.7634,
+      "RMSE": 38711274.7726,
+      "R2": 0.3646,
+      "CV_R2": 0.135
     },
-    "Random Forest": {
-      "MAE": 1.4656,
-      "MSE": 3.2767,
-      "RMSE": 1.8102,
-      "R2": -0.03
-    },
-    "Gradient Boosting": {
-      "MAE": 1.4287,
-      "MSE": 3.1085,
-      "RMSE": 1.7631,
-      "R2": 0.0229
-    },
-    "Ridge": {
-      "MAE": 1.3579,
-      "MSE": 2.8783,
-      "RMSE": 1.6966,
-      "R2": 0.0953
+    "candidates": {
+      "Ridge Log-Target": {
+        "MAE": 13931401.9602,
+        "RMSE": 45791595.0939,
+        "R2": 0.111,
+        "CV_R2": 0.0474
+      },
+      "Random Forest": {
+        "MAE": 15570743.7634,
+        "RMSE": 38711274.7726,
+        "R2": 0.3646,
+        "CV_R2": 0.135
+      }
     }
   },
   "success": {
-    "Logistic Regression": {
-      "Accuracy": 0.6368,
-      "F1": 0.6091,
-      "Precision": 0.6593,
-      "Recall": 0.566
+    "best_model": "Random Forest",
+    "metrics": {
+      "Accuracy": 0.8425,
+      "F1": 0.8392,
+      "Precision": 0.8759,
+      "Recall": 0.8054,
+      "ROC_AUC": 0.8968
     },
-    "Random Forest": {
-      "Accuracy": 0.533,
-      "F1": 0.5561,
-      "Precision": 0.5299,
-      "Recall": 0.5849
-    },
-    "Gradient Boosting": {
-      "Accuracy": 0.6274,
-      "F1": 0.5864,
-      "Precision": 0.6588,
-      "Recall": 0.5283
+    "candidates": {
+      "Logistic Regression": {
+        "Accuracy": 0.839,
+        "F1": 0.8374,
+        "Precision": 0.8643,
+        "Recall": 0.8121,
+        "ROC_AUC": 0.8997
+      },
+      "Random Forest": {
+        "Accuracy": 0.8425,
+        "F1": 0.8392,
+        "Precision": 0.8759,
+        "Recall": 0.8054,
+        "ROC_AUC": 0.8968
+      },
+      "Gradient Boosting": {
+        "Accuracy": 0.8288,
+        "F1": 0.8299,
+        "Precision": 0.8414,
+        "Recall": 0.8188,
+        "ROC_AUC": 0.8909
+      }
     }
   },
   "industry": {
-    "Accuracy": 0.9906,
-    "F1": 0.9868
+    "best_model": "TF-IDF Logistic Regression",
+    "metrics": {
+      "Accuracy": 0.1233,
+      "F1": 0.0935,
+      "Classes": 53,
+      "Training Rows": 1460
+    }
   }
 }

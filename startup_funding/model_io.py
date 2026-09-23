@@ -28,7 +28,7 @@ def verify_hash(path: Path) -> bool:
     if not hash_path.exists():
         return True
     expected = hash_path.read_text(encoding="utf-8").strip()
-    return bool(expected) and sha256_file(path) == expected
+    return bool(expected) and sha256_file(path).lower() == expected.lower()
 
 
 def save_bundle(bundle: dict[str, Any], path: Path) -> None:
