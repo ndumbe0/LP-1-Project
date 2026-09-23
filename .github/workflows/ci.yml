@@ -38,6 +38,9 @@ jobs:
       - name: Lint
         run: python -m ruff check app.py eda_cleaning.py train_models.py startup_funding tests
 
+      - name: Security lint (Bandit)
+        run: python -m bandit -q -ll -r app.py eda_cleaning.py train_models.py startup_funding
+
       - name: Test
         run: python -m pytest
 

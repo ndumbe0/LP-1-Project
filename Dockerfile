@@ -16,7 +16,7 @@ RUN pip install --upgrade pip && pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-RUN python eda_cleaning.py && python train_models.py
+# Models and cleaned data are committed + SHA256-verified; use them directly (no build-time retraining)
 
 RUN useradd --create-home --shell /usr/sbin/nologin appuser && chown -R appuser:appuser /app
 USER appuser
