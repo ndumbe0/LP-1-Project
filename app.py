@@ -117,7 +117,7 @@ def render_model_cards(results: dict) -> None:
 def render_overview(df: pd.DataFrame) -> None:
     cover = IMAGES_DIR / "cover.png"
     if cover.exists():
-        st.image(str(cover), use_container_width=True)
+        st.image(str(cover), width="stretch")
 
     st.title("Startup Funding Analyzer")
     st.write(
@@ -138,7 +138,7 @@ def render_overview(df: pd.DataFrame) -> None:
     for idx, filename in enumerate(image_files):
         path = IMAGES_DIR / filename
         if path.exists():
-            cols[idx % 2].image(str(path), use_container_width=True)
+            cols[idx % 2].image(str(path), width="stretch")
 
 
 def render_market_explorer(df: pd.DataFrame) -> None:
@@ -170,13 +170,13 @@ def render_market_explorer(df: pd.DataFrame) -> None:
     col1, col2 = st.columns(2)
     col1.plotly_chart(
         px.line(trend, x="Funding Year", y="Amount in ($)", markers=True, title="Funding by year"),
-        use_container_width=True,
+        width="stretch",
     )
     col2.plotly_chart(
         px.bar(by_industry, x="Amount in ($)", y="Industry In", orientation="h", title="Top funded industries"),
-        use_container_width=True,
+        width="stretch",
     )
-    st.dataframe(filtered.sort_values("Amount in ($)", ascending=False).head(200), use_container_width=True)
+    st.dataframe(filtered.sort_values("Amount in ($)", ascending=False).head(200), width="stretch")
 
 
 def render_startup_predictor(df: pd.DataFrame, models: dict) -> None:
@@ -208,7 +208,7 @@ def render_startup_predictor(df: pd.DataFrame, models: dict) -> None:
             "AI-enabled operating system that helps clinics predict patient demand and manage working capital.",
             height=110,
         )
-        submitted = st.form_submit_button("Score startup", use_container_width=True)
+        submitted = st.form_submit_button("Score startup", width="stretch")
 
     if not submitted:
         st.info("Fill in a startup concept and score it against the historical funding patterns.")
@@ -239,7 +239,7 @@ def render_startup_predictor(df: pd.DataFrame, models: dict) -> None:
     similar = find_similar_startups(df, startup, top_n=8)
     st.subheader("Similar funded startups")
     display_cols = ["CompanyName", "Industry In", "Head Quarter", "Funding Round/Series", "Amount in ($)", "Funding Year"]
-    st.dataframe(similar[display_cols], use_container_width=True)
+    st.dataframe(similar[display_cols], width="stretch")
 
 
 def render_batch_predictions(models: dict) -> None:
@@ -261,7 +261,7 @@ def render_batch_predictions(models: dict) -> None:
     if "industry" in models:
         clean["Predicted Industry"] = classify_industry(models["industry"], clean["AboutCompany"])
 
-    st.dataframe(clean, use_container_width=True)
+    st.dataframe(clean, width="stretch")
     st.download_button(
         "Download predictions",
         data=clean.to_csv(index=False, lineterminator="\n"),
