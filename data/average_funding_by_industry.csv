@@ -1,301 +1,600 @@
-Industry,Amount
-Innovation Management,1000000000.0
-Home services,250000000.0
-Cloud kitchen,175000000.0
-E-market,168000000.0
-Social media,153000000.0
-D2C Business,150000000.0
-Crypto,130750000.0
-Health and Fitness,115000000.0
-Finance,101296400.0
-Automotive and Rentals,101250000.0
-Fashion & Lifestyle,100000000.0
-BioTechnology,100000000.0
-B2B Ecommerce,92500000.0
-D2C,85500000.0
-Finance company,80000000.0
-Automotive,79964705.88235295
-Software Startup,77500000.0
-"Manchester, Greater Manchester",75000000.0
-Banking,65000000.0
-Construction,56937500.0
-Co-living,56000000.0
-B2B E-commerce,51000000.0
-SaaS platform,50300000.0
-Recruitment,50100000.0
-Clothing,50000000.0
-SaaS,48611111.11111111
-Computer software,47110000.0
-Insurance,45491666.666666664
-E-tail,43700000.0
-Car Trade,42500000.0
-Delivery service,40000000.0
-Logistics,39797636.36363637
-Interior Design,38000000.0
-HealthTech,36488461.538461536
-Social network,32000000.0
-Automation,30270000.0
-Social Media,30000000.0
-B2B,30000000.0
-B2B startup,30000000.0
-Transport & Rentals,30000000.0
-Customer service company,30000000.0
-Logistics & Supply Chain,29751818.181818184
-Entertainment,28738400.0
-Edtech,28428751.666666668
-EdtTech,28000000.0
-Foodtech,27887883.333333332
-Food tech,26500000.0
-Community platform,26000000.0
-Hospital & Health Care,25662500.0
-Marketplace,25500000.0
-Software Company,25000000.0
-Dairy startup,25000000.0
-InsureTech,25000000.0
-Financial Services,24350000.0
-Human Resources,24066666.666666668
-Social commerce,23950000.0
-Information Technology & Services,23866666.666666668
-FinTech,23638571.42857143
-Service industry,23000000.0
-OTT,22000000.0
-Retail,21437500.0
-"Health, Wellness & Fitness",20590000.0
-Agriculture,20000000.0
-Telecommunications,20000000.0
-Beauty products,20000000.0
-Beverage,20000000.0
-Pet care,19800000.0
-Food and Beverages,19650000.0
-Automobiles,19500000.0
-SaaS startup,18681250.0
-Food & Beverages,18171666.666666668
-CleanTech,18000000.0
-E-commerce,17786285.714285713
-Healthtech,17758933.333333332
-E-learning,17196176.470588237
-AI startup,16691666.666666666
-AgriTech,16628000.0
-Tech Startup,15437500.0
-Mobility,15180000.0
-Video,15000000.0
-Transportation,15000000.0
-Cryptocurrency,15000000.0
-Automobile Technology,14700000.0
-EdTech,14465616.438356165
-Fintech,13417636.363636363
-Tech,12952250.0
-Health,12750000.0
-Computer Software,11550000.0
-Manufacturing,11370000.0
-Automobile,11241000.0
-Industrial Automation,10500000.0
-Insuretech,10500000.0
-Consumer Services,10240000.0
-Furniture,10100000.0
-B2B Agritech,10000000.0
-Tech platform,10000000.0
-Farming,10000000.0
-Product studio,10000000.0
-Tech startup,9466666.666666666
-Gaming,9304166.666666666
-Logitech,9000000.0
-Consumer appliances,9000000.0
-Home Design,9000000.0
-Healthcare,8615333.333333334
-Technology,8500000.0
-Food Industry,8500000.0
-Jewellery,8090000.0
-Professional Training & Coaching,8000000.0
-Job portal,8000000.0
-Home interior services,8000000.0
-AI Platform,8000000.0
-Software company,7600000.0
-Agritech,7554833.333333333
-AI Chatbot,7500000.0
-Retail Tech,7500000.0
-Social e-commerce,7500000.0
-Cosmetics,7414285.714285715
-IT,7403333.333333333
-Renewable Energy,7166666.666666667
-AR platform,7000000.0
-Electricity,7000000.0
-Investment Management,7000000.0
-Computer & Network Security,7000000.0
-Renewables & Environment,7000000.0
-Capital Markets,6600000.0
-SpaceTech,6450000.0
-Education Management,6333333.333333333
-Real Estate,6120000.0
-AI Company,6000000.0
-Heathcare,6000000.0
-Femtech,6000000.0
-"Supply chain, Agritech",5900000.0
-HealthCare,5730000.0
-Information Services,5700000.0
-Consulting,5650000.0
-Veterinary,5500000.0
-IoT startup,5100000.0
-Agritech startup,5060000.0
-Solar SaaS,5000000.0
-FM,5000000.0
-AI company,5000000.0
-Tech company,4750000.0
-Consumer Goods,4363333.333333333
-Transport,4304675.0
-Content marketplace,4200000.0
-Blogging,4100000.0
-API platform,4050000.0
-Video personalization,4000000.0
-Analytics,4000000.0
-Spiritual,4000000.0
-Marketing & Advertising,4000000.0
-Data Analytics,4000000.0
-Fishery,4000000.0
-Hospitality,3981111.111111111
-Apparel & Fashion,3866666.6666666665
-Biotechnology,3550000.0
-Content management,3500000.0
-Wholesale,3500000.0
-Online Media,3350000.0
-Mobility/Transport,3300000.0
-EV,3000000.0
-Education,3000000.0
-Video communication,3000000.0
-Equity Management,3000000.0
-HeathTech,3000000.0
-Matrimony,3000000.0
-Staffing & Recruiting,3000000.0
-Supply chain platform,3000000.0
-Social audio,3000000.0
-Aviation,3000000.0
-Cleantech,3000000.0
-Media,2916666.6666666665
-Personal care startup,2900000.0
-Ecommerce,2865500.0
-Healthcare/Edtech,2800000.0
-B2B Manufacturing,2600000.0
-IT startup,2533333.3333333335
-Deeptech,2420000.0
-EV startup,2300000.0
-Food & Logistics,2300000.0
-Solar,2200000.0
-B2B Travel,2200000.0
-EdTech Startup,2137500.0
-PaaS startup,2000000.0
-NFT,2000000.0
-Eyewear,2000000.0
-Trading platform,2000000.0
-E-connect,2000000.0
-Design,2000000.0
-Ayurveda tech,2000000.0
-Advertisement,1800000.0
-Aeorspace,1800000.0
-Software,1800000.0
-Information Technology,1788000.0
-HR Tech,1670000.0
-Blockchain,1600000.0
-Food,1600000.0
-Water purification,1600000.0
-Maritime,1600000.0
-Fitness startup,1550000.0
-AI,1516000.0
-HR Tech startup,1500000.0
-Proptech,1500000.0
-Management Consulting,1500000.0
-Manufacturing startup,1500000.0
-Digital Media,1500000.0
-Health care,1500000.0
-Conversational AI platform,1500000.0
-Food & Bevarages,1466666.6666666667
-Biomaterial startup,1400000.0
-Publication,1400000.0
-Blockchain startup,1350000.0
-Music,1250000.0
-Food Production,1250000.0
-SportsTech,1250000.0
-sports,1200000.0
-Data Intelligence,1200000.0
-Internet,1200000.0
-Mobile Games,1100000.0
-Foootwear,1100000.0
-Insurance Tech,1050000.0
-Fashion,1020000.0
-Dating,1005000.0
-Vehicle repair startup,1000000.0
-MarTech,1000000.0
-MLOps platform,1000000.0
-Crowdsourcing,1000000.0
-Content publishing,1000000.0
-Interior design,1000000.0
-Drone,1000000.0
-Defense tech,1000000.0
-LegalTech,1000000.0
-Commerce,1000000.0
-FMCG,1000000.0
-Tourism,1000000.0
-AR/VR startup,1000000.0
-Gaming startup,1000000.0
-Sales and Distribution,1000000.0
-Celebrity Engagement,1000000.0
-Co-working Startup,1000000.0
-Soil-Tech,1000000.0
-Recruitment startup,1000000.0
-Skill development,1000000.0
-Cloud Kitchen,1000000.0
-Deep Tech,950000.0
-WL & RAC protection,900000.0
-Investment,887000.0
-Medtech,850000.0
-Rental,850000.0
-Community,810000.0
-Social platform,800000.0
-AR startup,800000.0
-Fitness,733333.3333333334
-Marketing company,700000.0
-Networking,620000.0
-Translation & Localization,600000.0
-Biotechnology company,600000.0
-Textiles,570000.0
-Preschool Daycare,507000.0
-Agri tech,500000.0
-Electronics,500000.0
-Innovation management,500000.0
-Aviation & Aerospace,500000.0
-Co-working,500000.0
-Fashion Tech,467000.0
-Hauz Khas,461000.0
-Retail startup,450000.0
-Helathcare,400000.0
-Sports startup,400000.0
-Dairy,400000.0
-Higher Education,400000.0
-IoT,374000.0
-Real estate,350000.0
-Content Marktplace,306900.0
-Business Supplies & Equipment,300000.0
-Merchandise,300000.0
-Healtcare,300000.0
-B2B service,300000.0
-TaaS startup,250000.0
-Fertility tech,200000.0
-Cannabis startup,200000.0
-Marketing,200000.0
-Job discovery platform,140000.0
-Dating app,110000.0
-FoodTech,100000.0
-Interior & decor,100000.0
-Milk startup,100000.0
-Oil & Energy,100000.0
-Advisory firm,
-Arts & Crafts,
-Battery,
-Computer Games,
-Consumer goods,
-Content commerce,
-D2C Fashion,
-Environmental service,
-Fashion and lifestyle,
-IT company,
-NFT Marketplace,
-Rental space,
+Industry In,deals,total_funding,average_funding,median_funding
+FinTech,89,2147110000.0,24124831.460674156,6000000.0
+Edtech,25,1247900230.0,49916009.2,5200000.0
+Automotive,18,1210420000.0,67245555.55555555,12500000.0
+Financial Services,51,1085730000.0,21288823.529411763,4500000.0
+EdTech,73,1055990000.0,14465616.438356165,2000000.0
+Insurance,7,1015225000.0,145032142.85714287,6000000.0
+Innovation Management,1,1000000000.0,1000000000.0,1000000000.0
+"Food Delivery, Food Processing, Internet",1,1000000000.0,1000000000.0,1000000000.0
+E-commerce,38,910520000.0,23961052.63157895,4500000.0
+Hospitality,11,728890000.0,66262727.27272727,1200000.0
+Logistics,14,553774000.0,39555285.71428572,19185000.0
+"EdTech, Education, Higher Education, Secondary Education",1,540000000.0,540000000.0,540000000.0
+Finance,7,509282000.0,72754571.42857143,1800000.0
+Information Technology & Services,19,499200000.0,26273684.210526317,7000000.0
+HealthTech,13,474350000.0,36488461.538461536,3000000.0
+SaaS,12,462500000.0,38541666.666666664,11500000.0
+AgriTech,29,437000000.0,15068965.51724138,5000000.0
+Retail,17,380680000.0,22392941.17647059,4000000.0
+Transportation,5,371000000.0,74200000.0,7000000.0
+"Energy, Natural Resources",1,365000000.0,365000000.0,365000000.0
+E-market,2,336000000.0,168000000.0,168000000.0
+Logistics & Supply Chain,11,327270000.0,29751818.181818184,12000000.0
+Food & Beverages,18,327090000.0,18171666.666666668,4750000.0
+Fintech,26,325188000.0,12507230.76923077,5000000.0
+Social media,2,306000000.0,153000000.0,153000000.0
+Foodtech,8,299327300.0,37415912.5,9350000.0
+SaaS startup,16,298900000.0,18681250.0,950000.0
+E-learning,17,292335000.0,17196176.470588237,5000000.0
+Crypto,2,261500000.0,130750000.0,130750000.0
+Home services,1,250000000.0,250000000.0,250000000.0
+Aerospace,1,240000000.0,240000000.0,240000000.0
+Computer software,5,235550000.0,47110000.0,1900000.0
+Robotics & AI,1,230000000.0,230000000.0,230000000.0
+Construction,4,227750000.0,56937500.0,51100000.0
+"B2B, Business Development, Internet, Marketplace",1,225000000.0,225000000.0,225000000.0
+"Food Delivery, Hospitality, Reservations, Restaurants, Search Engine",1,210000000.0,210000000.0,210000000.0
+"Health Insurance, Insurance, Life Insurance",1,210000000.0,210000000.0,210000000.0
+"Health, Wellness & Fitness",10,205900000.0,20590000.0,6150000.0
+Automotive and Rentals,2,202500000.0,101250000.0,101250000.0
+AI startup,12,200300000.0,16691666.666666666,1350000.0
+BioTechnology,2,200000000.0,100000000.0,100000000.0
+Tech Startup,12,185250000.0,15437500.0,3200000.0
+"Energy, Renewable Energy, Solar",1,185000000.0,185000000.0,185000000.0
+"Financial Services, Venture Capital",1,184704000.0,184704000.0,184704000.0
+Hospital & Health Care,7,181300000.0,25900000.0,4000000.0
+Cloud kitchen,1,175000000.0,175000000.0,175000000.0
+D2C,2,171000000.0,85500000.0,85500000.0
+Banking,3,163000000.0,54333333.333333336,44000000.0
+Healthtech,10,160050400.0,16005040.0,4750000.0
+Software Startup,2,155000000.0,77500000.0,77500000.0
+D2C Business,1,150000000.0,150000000.0,150000000.0
+Unknown,9,146649600.0,16294400.0,4000000.0
+Entertainment,5,143692000.0,28738400.0,3000000.0
+Healthcare,16,141230000.0,8826875.0,4500000.0
+Computer Software,12,138600000.0,11550000.0,3500000.0
+Automobile,4,137241000.0,34310250.0,30620500.0
+Health and Fitness,1,115000000.0,115000000.0,115000000.0
+Interior Design,3,114000000.0,38000000.0,50000000.0
+Gaming,12,111650000.0,9304166.666666666,2000000.0
+"Banking, Finance, Financial Services",2,104300000.0,52150000.0,52150000.0
+Tech,8,103618000.0,12952250.0,5628500.0
+SaaS platform,2,100600000.0,50300000.0,50300000.0
+Recruitment,2,100200000.0,50100000.0,50100000.0
+"Automotive, Rental, Sharing Economy",1,100000000.0,100000000.0,100000000.0
+"Hospitality, Hotel, Leisure, Travel",1,100000000.0,100000000.0,100000000.0
+Fashion & Lifestyle,1,100000000.0,100000000.0,100000000.0
+"Fantasy Sports, Mobile, Sports",1,100000000.0,100000000.0,100000000.0
+Biopharma,1,100000000.0,100000000.0,100000000.0
+"Internet, Mobile Apps, Social Network",1,99230000.0,99230000.0,99230000.0
+Automation,3,90810000.0,30270000.0,410000.0
+B2B Ecommerce,1,85000000.0,85000000.0,85000000.0
+Cosmetics,8,81900000.0,10237500.0,3500000.0
+"Health Care, Pharmaceutical, Wellness",1,80000000.0,80000000.0,80000000.0
+Finance company,1,80000000.0,80000000.0,80000000.0
+"Manchester, Greater Manchester",1,75000000.0,75000000.0,75000000.0
+"Automotive, E-Commerce, Information Services",1,75000000.0,75000000.0,75000000.0
+Human Resources,4,72320000.0,18080000.0,1100000.0
+"E-Commerce, Furniture, Interior Design",1,70000000.0,70000000.0,70000000.0
+"Automotive, Battery, Electric Vehicle, Manufacturing, Mechanical Design",1,65000000.0,65000000.0,65000000.0
+"Finance, Financial Services",5,63380000.0,12676000.0,7200000.0
+Manufacturing,3,62570000.0,20856666.666666668,19200000.0
+Technology,4,60500000.0,15125000.0,4750000.0
+Food,4,58200000.0,14550000.0,13850000.0
+HealthCare,10,57300000.0,5730000.0,3500000.0
+Co-living,1,56000000.0,56000000.0,56000000.0
+Consumer Goods,13,52744000.0,4057230.769230769,700000.0
+Insuretech,5,52500000.0,10500000.0,2500000.0
+Travel,3,52400000.0,17466666.666666668,2000000.0
+Automotive tech,2,52000000.0,26000000.0,26000000.0
+Consumer Services,5,51200000.0,10240000.0,2000000.0
+—,20,51160400.0,2558020.0,1275000.0
+B2B E-commerce,1,51000000.0,51000000.0,51000000.0
+Marketplace,2,51000000.0,25500000.0,25500000.0
+"Health Care, Health Insurance",1,50000000.0,50000000.0,50000000.0
+Clothing,1,50000000.0,50000000.0,50000000.0
+InsureTech,2,50000000.0,25000000.0,25000000.0
+"E-Commerce, E-Commerce Platforms, Internet, Mobile Apps, Social Media",1,50000000.0,50000000.0,50000000.0
+"Apps, E-Commerce, Internet, Mobile, Ride Sharing, Transportation",1,50000000.0,50000000.0,50000000.0
+"Apps, Home Services, Information Services, Information Technology",1,50000000.0,50000000.0,50000000.0
+"Accounting, Apps, FinTech",1,48000000.0,48000000.0,48000000.0
+Social commerce,2,47900000.0,23950000.0,23950000.0
+Mobility,3,45540000.0,15180000.0,5000000.0
+Agritech,6,45329000.0,7554833.333333333,2750000.0
+E-tail,1,43700000.0,43700000.0,43700000.0
+Car Trade,1,42500000.0,42500000.0,42500000.0
+Delivery service,1,40000000.0,40000000.0,40000000.0
+Telecommunications,2,40000000.0,20000000.0,20000000.0
+"Continuing Education, EdTech, Education, Skill Assessment",1,40000000.0,40000000.0,40000000.0
+Pet care,2,39600000.0,19800000.0,19800000.0
+Food and Beverages,2,39300000.0,19650000.0,19650000.0
+Automobiles,2,39000000.0,19500000.0,19500000.0
+AI,7,38580000.0,5511428.571428572,1500000.0
+"EdTech, Education, Knowledge Management",1,35000000.0,35000000.0,35000000.0
+"Biotechnology, Health Care, Pharmaceutical",1,35000000.0,35000000.0,35000000.0
+Transport & Rentals,2,34800000.0,17400000.0,17400000.0
+B2B,2,34000000.0,17000000.0,17000000.0
+Social Media,2,32000000.0,16000000.0,16000000.0
+Social network,1,32000000.0,32000000.0,32000000.0
+Interior design,2,31000000.0,15500000.0,15500000.0
+Real Estate,5,30600000.0,6120000.0,2100000.0
+"Banking, Finance, Financial Services, Non Profit",1,30000000.0,30000000.0,30000000.0
+"Automotive, E-Commerce Platforms, Marketplace",1,30000000.0,30000000.0,30000000.0
+"Credit, Finance, FinTech, Lending, Sales Automation",1,30000000.0,30000000.0,30000000.0
+"AgTech, B2B, Supply Chain Management",1,30000000.0,30000000.0,30000000.0
+Customer service company,1,30000000.0,30000000.0,30000000.0
+B2B startup,1,30000000.0,30000000.0,30000000.0
+Tech startup,3,28400000.0,9466666.666666666,3000000.0
+"Financial Services, Micro Lending",1,28000000.0,28000000.0,28000000.0
+EdtTech,1,28000000.0,28000000.0,28000000.0
+Food tech,1,26500000.0,26500000.0,26500000.0
+Community platform,1,26000000.0,26000000.0,26000000.0
+SpaceTech,4,25800000.0,6450000.0,6150000.0
+Health,2,25500000.0,12750000.0,12750000.0
+"Delivery Service, Food and Beverage, Food Delivery",1,25000000.0,25000000.0,25000000.0
+Dairy startup,1,25000000.0,25000000.0,25000000.0
+Software Company,1,25000000.0,25000000.0,25000000.0
+"Information Services, Internet, Logistics, Supply Chain Management, Transportation",1,24355200.0,24355200.0,24355200.0
+"Home Decor, Home Improvement, Home Renovation, Home Services, Interior Design, Smart Home",1,24000000.0,24000000.0,24000000.0
+"Energy, Solar",1,24000000.0,24000000.0,24000000.0
+Ecommerce,7,23493000.0,3356142.8571428573,3000000.0
+Apparel & Fashion,6,23200000.0,3866666.6666666665,850000.0
+"B2B, E-Commerce, Mobile",1,23000000.0,23000000.0,23000000.0
+Service industry,1,23000000.0,23000000.0,23000000.0
+IT,3,22210000.0,7403333.333333333,2110000.0
+"Consumer Goods, Manufacturing",1,22000000.0,22000000.0,22000000.0
+OTT,1,22000000.0,22000000.0,22000000.0
+Renewable Energy,3,21500000.0,7166666.666666667,4500000.0
+Industrial Automation,2,21000000.0,10500000.0,10500000.0
+Furniture,2,20200000.0,10100000.0,10100000.0
+Beauty products,1,20000000.0,20000000.0,20000000.0
+AI & Tech,1,20000000.0,20000000.0,20000000.0
+Agriculture,1,20000000.0,20000000.0,20000000.0
+Infratech,1,20000000.0,20000000.0,20000000.0
+Beverage,1,20000000.0,20000000.0,20000000.0
+Education Management,3,19000000.0,6333333.333333333,5000000.0
+CleanTech,2,18240000.0,9120000.0,9120000.0
+Heathcare,3,18000000.0,6000000.0,5000000.0
+Biotechnology,5,17800000.0,3560000.0,3600000.0
+Media,6,17500000.0,2916666.6666666665,1400000.0
+Consulting,4,17250000.0,4312500.0,1050000.0
+"Finance, FinTech, Mobile Payments",1,17200000.0,17200000.0,17200000.0
+Food Industry,2,17000000.0,8500000.0,8500000.0
+"E-Commerce, E-Commerce Platforms, Retail",1,16920000.0,16920000.0,16920000.0
+"Food and Beverage, Food Processing, Manufacturing",1,16800000.0,16800000.0,16800000.0
+Transport,3,16618700.0,5539566.666666667,7975700.0
+Pharmaceutical,1,15500000.0,15500000.0,15500000.0
+Software company,2,15200000.0,7600000.0,7600000.0
+"Commercial Real Estate, Coworking, Office Administration, Real Estate",1,15000000.0,15000000.0,15000000.0
+Cryptocurrency,1,15000000.0,15000000.0,15000000.0
+Video,1,15000000.0,15000000.0,15000000.0
+Social e-commerce,2,15000000.0,7500000.0,7500000.0
+"E-Commerce, Retail, Shopping",1,15000000.0,15000000.0,15000000.0
+"FinTech, Internet, Payments, Service Industry",1,14900000.0,14900000.0,14900000.0
+Automobile Technology,1,14700000.0,14700000.0,14700000.0
+"Beauty, Fashion, Wellness",1,13560000.0,13560000.0,13560000.0
+"Big Data, Consumer Lending, FinTech",1,13400000.0,13400000.0,13400000.0
+"Finance, Financial Services, FinTech",1,13200000.0,13200000.0,13200000.0
+Information Technology,10,13040000.0,1304000.0,800000.0
+Accomodation,2,12700000.0,6350000.0,6350000.0
+"Health Care, Hospital",4,12684000.0,3171000.0,2910000.0
+E-Commerce,2,12500000.0,6250000.0,6250000.0
+Deeptech,5,12100000.0,2420000.0,1000000.0
+"Financial Services, Insurance, Private Social Networking",1,12000000.0,12000000.0,12000000.0
+Marketing & Advertising,3,12000000.0,4000000.0,3000000.0
+"Logistics, Transportation, Travel",1,12000000.0,12000000.0,12000000.0
+"EdTech, Education, Mobile, Tutoring",1,11000000.0,11000000.0,11000000.0
+Farming,2,11000000.0,5500000.0,5500000.0
+"Apps, E-Commerce, Internet",1,11000000.0,11000000.0,11000000.0
+"E-Commerce, E-Commerce Platforms, Internet, Retail",1,11000000.0,11000000.0,11000000.0
+E-Learning,3,10150000.0,3383333.3333333335,5000000.0
+"Financial Services, Lending",3,10130000.0,3376666.6666666665,2000000.0
+B2B Agritech,1,10000000.0,10000000.0,10000000.0
+Tech platform,1,10000000.0,10000000.0,10000000.0
+Product studio,1,10000000.0,10000000.0,10000000.0
+"Automotive, Last Mile Transportation, Peer to Peer, Ride Sharing",1,10000000.0,10000000.0,10000000.0
+"E-Commerce, Fitness, Health Care",1,10000000.0,10000000.0,10000000.0
+"Internet, Social Network, TV",1,10000000.0,10000000.0,10000000.0
+"Food and Beverage, Restaurants, Tea",1,9720000.0,9720000.0,9720000.0
+Tech company,2,9500000.0,4750000.0,4750000.0
+Jewellery,2,9090000.0,4545000.0,4545000.0
+"Biotechnology, Life Science, Pharmaceutical, Product Research",1,9000000.0,9000000.0,9000000.0
+Consumer appliances,1,9000000.0,9000000.0,9000000.0
+Logitech,1,9000000.0,9000000.0,9000000.0
+Home Design,1,9000000.0,9000000.0,9000000.0
+"Hospitality, Information Technology, Travel Accommodations",1,8760000.0,8760000.0,8760000.0
+EdTech Startup,4,8550000.0,2137500.0,725000.0
+Home interior services,1,8000000.0,8000000.0,8000000.0
+Professional Training & Coaching,1,8000000.0,8000000.0,8000000.0
+Job portal,1,8000000.0,8000000.0,8000000.0
+AI Platform,1,8000000.0,8000000.0,8000000.0
+"Apps, Information Services, Information Technology",1,7800000.0,7800000.0,7800000.0
+"Manufacturing, Retail",1,7800000.0,7800000.0,7800000.0
+IT startup,3,7600000.0,2533333.3333333335,2000000.0
+AI Chatbot,1,7500000.0,7500000.0,7500000.0
+Retail Tech,1,7500000.0,7500000.0,7500000.0
+"Delivery, Logistics, Transportation",1,7200000.0,7200000.0,7200000.0
+"E-Commerce, Fashion, Lifestyle",1,7200000.0,7200000.0,7200000.0
+Renewables & Environment,1,7000000.0,7000000.0,7000000.0
+Investment Management,1,7000000.0,7000000.0,7000000.0
+AR platform,1,7000000.0,7000000.0,7000000.0
+"E-Commerce, Food and Beverage, Internet",1,7000000.0,7000000.0,7000000.0
+"Fitness, Health Care, Wellness",4,7000000.0,1750000.0,1500000.0
+Computer & Network Security,1,7000000.0,7000000.0,7000000.0
+Electricity,1,7000000.0,7000000.0,7000000.0
+"Agriculture, Mobile",1,6960000.0,6960000.0,6960000.0
+EV startup,3,6900000.0,2300000.0,3000000.0
+Online Media,2,6700000.0,3350000.0,3350000.0
+"Classifieds, Internet, Marketplace, Rental Property",1,6600000.0,6600000.0,6600000.0
+Capital Markets,1,6600000.0,6600000.0,6600000.0
+"Fashion, Jewelry",1,6120000.0,6120000.0,6120000.0
+Fashion,7,6096000.0,870857.1428571428,1000000.0
+"Air Transportation, Freight Service, Logistics, Marine Transportation",1,6000000.0,6000000.0,6000000.0
+Femtech,1,6000000.0,6000000.0,6000000.0
+"Apps, Fitness, Health Care, mHealth",1,6000000.0,6000000.0,6000000.0
+"Information Technology, Mobile, News, Operating Systems, Social Media, Social News",1,6000000.0,6000000.0,6000000.0
+Cleantech,2,6000000.0,3000000.0,3000000.0
+AI Company,1,6000000.0,6000000.0,6000000.0
+Food & tech,1,6000000.0,6000000.0,6000000.0
+"Supply chain, Agritech",1,5900000.0,5900000.0,5900000.0
+Information Services,1,5700000.0,5700000.0,5700000.0
+Veterinary,2,5614000.0,2807000.0,2807000.0
+"E-Commerce, E-Commerce Platforms, Furniture, Home Decor, Internet",1,5600000.0,5600000.0,5600000.0
+Insurance technology,1,5500000.0,5500000.0,5500000.0
+IoT startup,1,5100000.0,5100000.0,5100000.0
+Agritech startup,1,5060000.0,5060000.0,5060000.0
+Solar SaaS,1,5000000.0,5000000.0,5000000.0
+Automobile & Technology,1,5000000.0,5000000.0,5000000.0
+"Industrial Automation, Logistics, Supply Chain Management",1,5000000.0,5000000.0,5000000.0
+"Health Care, Hospital, Wellness",1,5000000.0,5000000.0,5000000.0
+AI company,1,5000000.0,5000000.0,5000000.0
+"Gaming, iOS, Sports",1,5000000.0,5000000.0,5000000.0
+"B2B, Medical Device",1,5000000.0,5000000.0,5000000.0
+"Consulting, Cyber Security, Network Security",1,5000000.0,5000000.0,5000000.0
+"Banking, Financial Services, Internet",1,5000000.0,5000000.0,5000000.0
+FM,1,5000000.0,5000000.0,5000000.0
+"Digital Entertainment, Fantasy Sports, Sports",1,5000000.0,5000000.0,5000000.0
+"Logistics, Railroad, Transportation",1,4800000.0,4800000.0,4800000.0
+"Finance, Financial Exchanges, Financial Services, Micro Lending",1,4800000.0,4800000.0,4800000.0
+Education,5,4660000.0,932000.0,360000.0
+"Delivery, Information Technology, Mobile Apps",1,4500000.0,4500000.0,4500000.0
+"B2B, Food and Beverage, Food Delivery",1,4500000.0,4500000.0,4500000.0
+Food & Bevarages,3,4400000.0,1466666.6666666667,1500000.0
+Solar,2,4400000.0,2200000.0,2200000.0
+"Digital Media, EBooks, Publishing, Reading Apps",1,4300000.0,4300000.0,4300000.0
+Content marketplace,1,4200000.0,4200000.0,4200000.0
+"Home Decor, Interior Design",1,4200000.0,4200000.0,4200000.0
+"Artificial Intelligence, Cloud Computing, Video",1,4104000.0,4104000.0,4104000.0
+Blogging,1,4100000.0,4100000.0,4100000.0
+"Apps, Payments, Retail",1,4080000.0,4080000.0,4080000.0
+Blockchain startup,3,4050000.0,1350000.0,1500000.0
+API platform,1,4050000.0,4050000.0,4050000.0
+"Consulting, Retail, Social",1,4000000.0,4000000.0,4000000.0
+Analytics,1,4000000.0,4000000.0,4000000.0
+Data Analytics,1,4000000.0,4000000.0,4000000.0
+Cybersecurity,1,4000000.0,4000000.0,4000000.0
+"E-Commerce, Health Care, Retail",1,4000000.0,4000000.0,4000000.0
+Spiritual,1,4000000.0,4000000.0,4000000.0
+"Mobile, Mobile Apps, Personalization, Test and Measurement, Web Apps",1,4000000.0,4000000.0,4000000.0
+NFT,2,4000000.0,2000000.0,2000000.0
+"Health Care, Health Diagnostics, Predictive Analytics",1,4000000.0,4000000.0,4000000.0
+"Big Data, Data Visualization, Logistics, Software",1,4000000.0,4000000.0,4000000.0
+Video personalization,1,4000000.0,4000000.0,4000000.0
+"Food and Beverage, Food Delivery, Snack Food",1,4000000.0,4000000.0,4000000.0
+"Collaboration, Communities, Coworking, Real Estate",1,4000000.0,4000000.0,4000000.0
+Fishery,1,4000000.0,4000000.0,4000000.0
+"EdTech, Education, Information Services, SaaS",1,3980000.0,3980000.0,3980000.0
+"Digital Entertainment, Mobile, PC Games",1,3530000.0,3530000.0,3530000.0
+Wholesale,1,3500000.0,3500000.0,3500000.0
+"Crowdsourcing, Financial Services, Funding Platform, Venture Capital",1,3500000.0,3500000.0,3500000.0
+Content management,1,3500000.0,3500000.0,3500000.0
+"Online Games, Software",1,3360000.0,3360000.0,3360000.0
+HR Tech,2,3340000.0,1670000.0,1670000.0
+"Artificial Intelligence, Energy, Oil and Gas",1,3300000.0,3300000.0,3300000.0
+Mobility/Transport,1,3300000.0,3300000.0,3300000.0
+"Beauty, Fitness, Home Services, Internet",1,3240000.0,3240000.0,3240000.0
+Blockchain,2,3200000.0,1600000.0,1600000.0
+"Fashion, Lifestyle, Rental",1,3168000.0,3168000.0,3168000.0
+Fitness startup,2,3100000.0,1550000.0,1550000.0
+"Enterprise Resource Planning (ERP), Information Services, Information Technology, Real Estate",1,3000000.0,3000000.0,3000000.0
+"Fashion, Graphic Design, Wearables",1,3000000.0,3000000.0,3000000.0
+Equity Management,1,3000000.0,3000000.0,3000000.0
+HeathTech,1,3000000.0,3000000.0,3000000.0
+EV,1,3000000.0,3000000.0,3000000.0
+Digital Media,2,3000000.0,1500000.0,1500000.0
+Software,2,3000000.0,1500000.0,1500000.0
+Social audio,1,3000000.0,3000000.0,3000000.0
+Digital Entertainment,1,3000000.0,3000000.0,3000000.0
+Staffing & Recruiting,1,3000000.0,3000000.0,3000000.0
+Supply chain platform,1,3000000.0,3000000.0,3000000.0
+"Customer Service, Information Technology, Internet, Sales Automation",1,3000000.0,3000000.0,3000000.0
+"Autonomous Vehicles, Last Mile Transportation, Recreational Vehicles, Rental",1,3000000.0,3000000.0,3000000.0
+Video communication,1,3000000.0,3000000.0,3000000.0
+Matrimony,1,3000000.0,3000000.0,3000000.0
+Aviation,1,3000000.0,3000000.0,3000000.0
+"Career Planning, Education, Higher Education, Service Industry",1,3000000.0,3000000.0,3000000.0
+"Human Resources, Security, Training",1,3000000.0,3000000.0,3000000.0
+"Health Care, Hospital, Medical",1,3000000.0,3000000.0,3000000.0
+"Financial Services, FinTech",2,2936000.0,1468000.0,1468000.0
+Rental,3,2900000.0,966666.6666666666,1000000.0
+Personal care startup,1,2900000.0,2900000.0,2900000.0
+"Computer, FinTech, Risk Management, Software",1,2880000.0,2880000.0,2880000.0
+"Consumer Lending, Financial Services, FinTech, Insurance, Lending, Mobile Payments, Payments, Wealth Management",1,2880000.0,2880000.0,2880000.0
+Healthcare/Edtech,1,2800000.0,2800000.0,2800000.0
+Yoga & wellness,1,2800000.0,2800000.0,2800000.0
+"FinTech, Mobile, Mobile Payments, Payments, Retail Technology",1,2700000.0,2700000.0,2700000.0
+B2B Manufacturing,1,2600000.0,2600000.0,2600000.0
+Internet,4,2550000.0,637500.0,565000.0
+"Computer, Furniture, Software",1,2520000.0,2520000.0,2520000.0
+Food Production,2,2500000.0,1250000.0,1250000.0
+SportsTech,2,2500000.0,1250000.0,1250000.0
+"E-Commerce, Food and Beverage, Tea",1,2500000.0,2500000.0,2500000.0
+sports,2,2400000.0,1200000.0,1200000.0
+"Tourism, Travel",2,2400000.0,1200000.0,1200000.0
+"Credit, Financial Services, FinTech, Lending",2,2400000.0,1200000.0,1200000.0
+"Financial Services, SaaS, Security",1,2400000.0,2400000.0,2400000.0
+Food & Logistics,1,2300000.0,2300000.0,2300000.0
+Music,2,2250000.0,1125000.0,1125000.0
+Fitness,3,2200000.0,733333.3333333334,800000.0
+B2B Travel,1,2200000.0,2200000.0,2200000.0
+"Food Delivery, Organic, Organic Food",1,2200000.0,2200000.0,2200000.0
+Virtual Banking,1,2100000.0,2100000.0,2100000.0
+Dating,2,2010000.0,1005000.0,1005000.0
+Eyewear,1,2000000.0,2000000.0,2000000.0
+E-connect,1,2000000.0,2000000.0,2000000.0
+"Artificial Intelligence, Human Resources, Information Services, Information Technology",1,2000000.0,2000000.0,2000000.0
+"Hospitality, Real Estate",1,2000000.0,2000000.0,2000000.0
+"Android, Big Data, Blockchain, Cloud Computing, EdTech, Education, Information Technology, iOS, Training, Web Development",1,2000000.0,2000000.0,2000000.0
+"Information Services, Information Technology, Mobile, Software",1,2000000.0,2000000.0,2000000.0
+"Logistics, Supply Chain Management",1,2000000.0,2000000.0,2000000.0
+"Big Data, Financial Services, Machine Learning, Predictive Analytics",1,2000000.0,2000000.0,2000000.0
+"Automotive, E-Commerce, Marketplace",1,2000000.0,2000000.0,2000000.0
+"Automotive, Marketplace, Online Portals",1,2000000.0,2000000.0,2000000.0
+"Creative Agency, Crowdfunding, EdTech, Health Care, Internet, Medical, Non Profit, Personal Health",1,2000000.0,2000000.0,2000000.0
+Ayurveda tech,1,2000000.0,2000000.0,2000000.0
+PaaS startup,1,2000000.0,2000000.0,2000000.0
+Trading platform,1,2000000.0,2000000.0,2000000.0
+Design,1,2000000.0,2000000.0,2000000.0
+"E-Commerce, Mobile, Retail",1,2000000.0,2000000.0,2000000.0
+Deep Tech,2,1900000.0,950000.0,950000.0
+Consumer,1,1800000.0,1800000.0,1800000.0
+Aeorspace,1,1800000.0,1800000.0,1800000.0
+Advertisement,1,1800000.0,1800000.0,1800000.0
+"Crowdfunding, Finance, Financial Services",2,1800000.0,900000.0,900000.0
+"Cooking, E-Commerce, Food and Beverage, Food Delivery, Online Portals",1,1760000.0,1760000.0,1760000.0
+"Apps, Messaging, Navigation, Public Safety",1,1700000.0,1700000.0,1700000.0
+Medtech,2,1700000.0,850000.0,850000.0
+"Manufacturing, Oil and Gas, Robotics",1,1682400.0,1682400.0,1682400.0
+"Banking, Financial Services, FinTech",1,1680000.0,1680000.0,1680000.0
+"Information Technology, SaaS, Security",1,1680000.0,1680000.0,1680000.0
+Maritime,1,1600000.0,1600000.0,1600000.0
+"Cloud Infrastructure, PaaS, SaaS",1,1600000.0,1600000.0,1600000.0
+Water purification,1,1600000.0,1600000.0,1600000.0
+"Energy, Environmental Consulting, Renewable Energy, Solar",1,1500000.0,1500000.0,1500000.0
+Events,1,1500000.0,1500000.0,1500000.0
+Health care,1,1500000.0,1500000.0,1500000.0
+"Internet, Knowledge Management",1,1500000.0,1500000.0,1500000.0
+Management Consulting,1,1500000.0,1500000.0,1500000.0
+"Medical, Tourism",1,1500000.0,1500000.0,1500000.0
+Medical,1,1500000.0,1500000.0,1500000.0
+Conversational AI platform,1,1500000.0,1500000.0,1500000.0
+Manufacturing startup,1,1500000.0,1500000.0,1500000.0
+HR Tech startup,1,1500000.0,1500000.0,1500000.0
+Proptech,1,1500000.0,1500000.0,1500000.0
+"Software, Virtual Reality",1,1450000.0,1450000.0,1450000.0
+"Cryptocurrency, Trading Platform",1,1440000.0,1440000.0,1440000.0
+"EdTech, Education",1,1440000.0,1440000.0,1440000.0
+Biomaterial startup,1,1400000.0,1400000.0,1400000.0
+Publication,1,1400000.0,1400000.0,1400000.0
+"Finance, Financial Services, Insurance",1,1300000.0,1300000.0,1300000.0
+"Funding Platform, Incubators, Non Profit",1,1230000.0,1230000.0,1230000.0
+"Automotive, Search Engine, Service Industry",1,1200000.0,1200000.0,1200000.0
+Data Intelligence,1,1200000.0,1200000.0,1200000.0
+"Artificial Intelligence, Computer, Machine Learning",1,1100000.0,1100000.0,1100000.0
+Mobile Games,1,1100000.0,1100000.0,1100000.0
+"Health Care, Information Technology, Management Information Systems",1,1100000.0,1100000.0,1100000.0
+"Internet of Things, Robotics",1,1100000.0,1100000.0,1100000.0
+"Accounting, Business Information Systems, Business Travel, Finance, SaaS",1,1100000.0,1100000.0,1100000.0
+"Analytics, Apps, Market Research",1,1100000.0,1100000.0,1100000.0
+Foootwear,1,1100000.0,1100000.0,1100000.0
+Insurance Tech,1,1050000.0,1050000.0,1050000.0
+"Energy, Energy Storage, Infrastructure",1,1041000.0,1041000.0,1041000.0
+Soil-Tech,1,1000000.0,1000000.0,1000000.0
+"Apps, Events, News",1,1000000.0,1000000.0,1000000.0
+"Apps, Financial Services, FinTech",1,1000000.0,1000000.0,1000000.0
+"E-Commerce, Fashion, Mobile",1,1000000.0,1000000.0,1000000.0
+"E-Commerce, Fashion, Jewelry, Retail",1,1000000.0,1000000.0,1000000.0
+FMCG,1,1000000.0,1000000.0,1000000.0
+"Automotive, E-Commerce",1,1000000.0,1000000.0,1000000.0
+Recruitment startup,1,1000000.0,1000000.0,1000000.0
+Sales and Distribution,1,1000000.0,1000000.0,1000000.0
+Search Engine,1,1000000.0,1000000.0,1000000.0
+Skill development,1,1000000.0,1000000.0,1000000.0
+"Apps, Mobile, Transportation",1,1000000.0,1000000.0,1000000.0
+Crowdsourcing,1,1000000.0,1000000.0,1000000.0
+"E-Commerce, Furniture, Home Decor, Interior Design, Internet",1,1000000.0,1000000.0,1000000.0
+"E-Commerce, Mobile, Sharing Economy",1,1000000.0,1000000.0,1000000.0
+Drone,1,1000000.0,1000000.0,1000000.0
+Defense tech,1,1000000.0,1000000.0,1000000.0
+Content publishing,1,1000000.0,1000000.0,1000000.0
+"Consumer, Financial Services, FinTech",1,1000000.0,1000000.0,1000000.0
+Marketing & Customer loyalty,1,1000000.0,1000000.0,1000000.0
+MarTech,1,1000000.0,1000000.0,1000000.0
+"B2B, Information Services, Information Technology",1,1000000.0,1000000.0,1000000.0
+MLOps platform,1,1000000.0,1000000.0,1000000.0
+Gaming startup,1,1000000.0,1000000.0,1000000.0
+Cloud Kitchen,1,1000000.0,1000000.0,1000000.0
+Co-working Startup,1,1000000.0,1000000.0,1000000.0
+Commerce,1,1000000.0,1000000.0,1000000.0
+LegalTech,1,1000000.0,1000000.0,1000000.0
+"Health Care, Health Diagnostics, Internet of Things, Life Science, Machine Learning, Medical, Medical Device",1,1000000.0,1000000.0,1000000.0
+"Catering, Food and Beverage, Food Delivery, Food Processing",1,1000000.0,1000000.0,1000000.0
+Celebrity Engagement,1,1000000.0,1000000.0,1000000.0
+"Big Data, Business Intelligence, Financial Services, FinTech, Personal Finance",1,1000000.0,1000000.0,1000000.0
+"Basketball, Cricket, Cycling, eSports, Fitness, Golf, Health Care, Hockey, Sports, Swimming, Table Tennis, Volley Ball",1,1000000.0,1000000.0,1000000.0
+"Blockchain, Developer Tools, Enterprise Software",1,1000000.0,1000000.0,1000000.0
+Tourism,1,1000000.0,1000000.0,1000000.0
+Vehicle repair startup,1,1000000.0,1000000.0,1000000.0
+AR/VR startup,1,1000000.0,1000000.0,1000000.0
+"Last Mile Transportation, Railroad, Transportation, Travel",1,960000.0,960000.0,960000.0
+"Food and Beverage, Food Processing",2,912000.0,456000.0,456000.0
+"Consumer Lending, FinTech",1,900000.0,900000.0,900000.0
+Retail startup,2,900000.0,450000.0,450000.0
+WL & RAC protection,1,900000.0,900000.0,900000.0
+IoT,3,888000.0,296000.0,248000.0
+Investment,1,887000.0,887000.0,887000.0
+"Finance, Financial Services, Small and Medium Businesses",1,864000.0,864000.0,864000.0
+"Automotive, Retail",1,840000.0,840000.0,840000.0
+"Customer Service, Messaging, Mobile Apps, Personalization",1,840000.0,840000.0,840000.0
+"Rental, Taxi Service, Travel",1,840000.0,840000.0,840000.0
+Community,1,810000.0,810000.0,810000.0
+AR startup,1,800000.0,800000.0,800000.0
+"Audio, Mobile, Tourism, Travel",1,800000.0,800000.0,800000.0
+Helathcare,2,800000.0,400000.0,400000.0
+Social platform,1,800000.0,800000.0,800000.0
+"Credit, Financial Services, Lending, Marketplace",1,780000.0,780000.0,780000.0
+Autonomous Vehicles,1,768000.0,768000.0,768000.0
+"Online Portals, Property Management, Rental",1,750000.0,750000.0,750000.0
+"Crowdfunding, Financial Services, Internet",1,720000.0,720000.0,720000.0
+"Food Delivery, Online Portals, Restaurants",1,720000.0,720000.0,720000.0
+Marketing company,1,700000.0,700000.0,700000.0
+"B2B, Marketplace",1,700000.0,700000.0,700000.0
+"Information Technology, Logistics, Supply Chain Management",1,650000.0,650000.0,650000.0
+Networking,1,620000.0,620000.0,620000.0
+"Dietary Supplements, Food and Beverage, Health Care, Organic Food, Snack Food",1,600000.0,600000.0,600000.0
+"Consumer Lending, Finance, FinTech",1,600000.0,600000.0,600000.0
+Mutual Funds,1,600000.0,600000.0,600000.0
+"Business Development, Market Research, Outsourcing",1,600000.0,600000.0,600000.0
+Biotechnology company,1,600000.0,600000.0,600000.0
+"Children, Education, Parenting",1,600000.0,600000.0,600000.0
+Translation & Localization,1,600000.0,600000.0,600000.0
+Health Diagnostics,1,600000.0,600000.0,600000.0
+Food Processing,1,600000.0,600000.0,600000.0
+"Automotive, E-Commerce, Mobile",1,600000.0,600000.0,600000.0
+Market Research,1,600000.0,600000.0,600000.0
+Textiles,1,570000.0,570000.0,570000.0
+"E-Learning, Education",2,550000.0,275000.0,275000.0
+"Artificial Intelligence, Machine Learning, PaaS",1,550000.0,550000.0,550000.0
+Sports,1,540000.0,540000.0,540000.0
+"Communities, Leisure, Mobile Apps, Software",1,540000.0,540000.0,540000.0
+"Advertising, Human Resources, Marketing",1,528000.0,528000.0,528000.0
+Preschool Daycare,1,507000.0,507000.0,507000.0
+Co-working,1,500000.0,500000.0,500000.0
+"Collaboration, Communities, Coworking, Sharing Economy",1,500000.0,500000.0,500000.0
+"Food and Beverage, Snack Food",1,500000.0,500000.0,500000.0
+Mobile,1,500000.0,500000.0,500000.0
+"Internet, Social News, Sports",1,500000.0,500000.0,500000.0
+"Health Care, Medical, Pharmaceutical",1,500000.0,500000.0,500000.0
+Agri tech,1,500000.0,500000.0,500000.0
+Electronics,1,500000.0,500000.0,500000.0
+Aviation & Aerospace,1,500000.0,500000.0,500000.0
+Training,1,500000.0,500000.0,500000.0
+"Cloud Computing, Computer, SaaS, Software",1,500000.0,500000.0,500000.0
+Innovation management,1,500000.0,500000.0,500000.0
+"Business Intelligence, Customer Service, Market Research, SaaS",1,500000.0,500000.0,500000.0
+"B2B, Farming, Marketplace",1,500000.0,500000.0,500000.0
+"Finance, Impact Investing, Mobile Apps",1,500000.0,500000.0,500000.0
+"Education, Gaming, Training",1,500000.0,500000.0,500000.0
+"Clean Energy, CleanTech, Laundry and Dry-cleaning",1,480000.0,480000.0,480000.0
+"eSports, Gaming, Video Games",1,480000.0,480000.0,480000.0
+"Commercial, E-Learning, Education",1,480000.0,480000.0,480000.0
+"Agriculture, Farming",1,480000.0,480000.0,480000.0
+"Financial Services, Lending, Peer to Peer",1,480000.0,480000.0,480000.0
+"Media and Entertainment, News, Outdoors",1,480000.0,480000.0,480000.0
+Fashion Tech,1,467000.0,467000.0,467000.0
+Hauz Khas,1,461000.0,461000.0,461000.0
+"Food and Beverage, Food Delivery",1,432000.0,432000.0,432000.0
+"E-Learning, EdTech, Education, Image Recognition, Machine Learning, STEM Education",1,420000.0,420000.0,420000.0
+Food and Beverage,1,420000.0,420000.0,420000.0
+"Digital Media, News, Publishing",1,418800.0,418800.0,418800.0
+Health Care,1,408000.0,408000.0,408000.0
+Higher Education,1,400000.0,400000.0,400000.0
+Dairy,1,400000.0,400000.0,400000.0
+Food & Nutrition,1,400000.0,400000.0,400000.0
+Sports startup,1,400000.0,400000.0,400000.0
+"Fashion, Lifestyle, Retail",1,400000.0,400000.0,400000.0
+"Delivery Service, Logistics, Service Industry",1,396000.0,396000.0,396000.0
+"Automotive, Electric Vehicle, Energy",1,364846.0,364846.0,364846.0
+"Finance, Financial Services, Marketing",1,360000.0,360000.0,360000.0
+"Apps, Beauty, Consumer, Retail",1,360000.0,360000.0,360000.0
+Nanotechnology,1,360000.0,360000.0,360000.0
+Real estate,1,350000.0,350000.0,350000.0
+Wellness,1,316800.0,316800.0,316800.0
+Content Marktplace,1,306900.0,306900.0,306900.0
+Reading Apps,1,300000.0,300000.0,300000.0
+"Apps, Health Care, Internet, Mobile Apps, Personal Health",1,300000.0,300000.0,300000.0
+Merchandise,1,300000.0,300000.0,300000.0
+"Health Care, Hospital, Supply Chain Management",1,300000.0,300000.0,300000.0
+B2B service,1,300000.0,300000.0,300000.0
+Trading Platform,1,300000.0,300000.0,300000.0
+Business Supplies & Equipment,1,300000.0,300000.0,300000.0
+Healtcare,1,300000.0,300000.0,300000.0
+"Analytics, Computer Vision, Enterprise Software, Machine Learning, Natural Language Processing, Speech Recognition",1,300000.0,300000.0,300000.0
+"Brand Marketing, Event Promotion, Marketing, Sponsorship, Ticketing",1,250000.0,250000.0,250000.0
+"Battery, Electric Vehicle, Energy, Renewable Energy, Transportation",1,250000.0,250000.0,250000.0
+TaaS startup,1,250000.0,250000.0,250000.0
+"Education, Financial Services, FinTech",1,250000.0,250000.0,250000.0
+"Computer, Digital Marketing, Facilities Support Services, Graphic Design, Internet, Mobile Apps, Social Media Marketing, Web Development",1,250000.0,250000.0,250000.0
+"Broadcasting, Media and Entertainment, Music, Music Streaming, Video, Video Streaming",1,240000.0,240000.0,240000.0
+"Marketing, Social Media, Video",1,240000.0,240000.0,240000.0
+"Food and Beverage, Tea",1,240000.0,240000.0,240000.0
+"Internet of Things, Telecommunications",1,240000.0,240000.0,240000.0
+"Banking, E-Learning, Trading Platform",1,240000.0,240000.0,240000.0
+"Cloud Computing, Enterprise Software, Network Hardware, Network Security, SaaS",1,240000.0,240000.0,240000.0
+"Food and Beverage, Food Processing, Organic Food, Snack Food",1,240000.0,240000.0,240000.0
+"Analytics, Audio, Digital Media, Innovation Management, Internet Radio, Media and Entertainment",1,230400.0,230400.0,230400.0
+"Dental, Elder Care, Health Care, Home Health Care, Personal Health",1,200000.0,200000.0,200000.0
+Fertility tech,1,200000.0,200000.0,200000.0
+Cannabis startup,1,200000.0,200000.0,200000.0
+Marketing,1,200000.0,200000.0,200000.0
+Mobile Payments,1,200000.0,200000.0,200000.0
+"Environmental Consulting, Renewable Energy",1,199200.0,199200.0,199200.0
+"E-Learning, EdTech, Education",1,192000.0,192000.0,192000.0
+"Internet, Leisure, Marketplace",1,192000.0,192000.0,192000.0
+"Consumer Electronics, E-Commerce, E-Commerce Platforms, Electronics, Shipping, Shopping",1,180000.0,180000.0,180000.0
+"Health Care, Medical",1,180000.0,180000.0,180000.0
+"Big Data, EdTech, Machine Learning",1,180000.0,180000.0,180000.0
+"Health Care, Medical Device, Mobile Apps",1,175000.0,175000.0,175000.0
+"Food and Beverage, Snack Food, Tea",1,150000.0,150000.0,150000.0
+E-marketplace,1,150000.0,150000.0,150000.0
+"EdTech, Education, Enterprise Software, Peer to Peer",1,150000.0,150000.0,150000.0
+"Finance, Internet, Travel",1,150000.0,150000.0,150000.0
+Wealth Management,1,150000.0,150000.0,150000.0
+"Industrial, Industrial Automation",1,144000.0,144000.0,144000.0
+"Health Care, Information Technology",1,143145.0,143145.0,143145.0
+HR tech,1,140500.0,140500.0,140500.0
+Job discovery platform,1,140000.0,140000.0,140000.0
+"Information Services, Information Technology",1,125000.0,125000.0,125000.0
+"Marketplace, Real Estate, Rental Property",1,120000.0,120000.0,120000.0
+"Advertising, Internet, Marketing",1,120000.0,120000.0,120000.0
+"E-Learning, Internet",1,120000.0,120000.0,120000.0
+"Finance, Impact Investing, Internet",1,120000.0,120000.0,120000.0
+"Agriculture, AgTech, Artificial Intelligence, Internet of Things, Machine Learning",1,120000.0,120000.0,120000.0
+Dating app,1,110000.0,110000.0,110000.0
+"Apps, Health Care, Pharmaceutical",1,105000.0,105000.0,105000.0
+E-Sports,1,100000.0,100000.0,100000.0
+FoodTech,1,100000.0,100000.0,100000.0
+Legal tech,1,100000.0,100000.0,100000.0
+"Government, Information Technology, Software",1,100000.0,100000.0,100000.0
+Interior & decor,1,100000.0,100000.0,100000.0
+Artificial Intelligence,1,100000.0,100000.0,100000.0
+"Credit, Financial Services, FinTech, Personal Finance",1,100000.0,100000.0,100000.0
+Oil & Energy,1,100000.0,100000.0,100000.0
+Milk startup,1,100000.0,100000.0,100000.0
+"Credit Cards, Payments, Property Insurance, Property Management, Rental Property",1,100000.0,100000.0,100000.0
+"Health Care, Hospital, Medical, Robotics",1,70000.0,70000.0,70000.0
+"Beauty, Cosmetics, Health Care, Service Industry",1,60000.0,60000.0,60000.0
+"Digital Media, Incubators, Social Entrepreneurship",1,50000.0,50000.0,50000.0
+"Dating, Private Social Networking",1,40000.0,40000.0,40000.0
+"Artificial Intelligence, Drones, Navigation, Packaging Services, Robotics",1,20000.0,20000.0,20000.0
+"Internet, Social Entrepreneurship",1,16800.0,16800.0,16800.0
+"Digital Media, Internet, Media and Entertainment, Online Portals, Social Media",1,15000.0,15000.0,15000.0
+"Mobile, Software, Travel",1,14400.0,14400.0,14400.0
+"Artificial Intelligence, Information Technology",1,14400.0,14400.0,14400.0
+"B2B, Biometrics, Cyber Security, Fraud Detection, SaaS, Security",1,10000.0,10000.0,10000.0
+"Food and Beverage, Food Delivery, Internet",1,7500.0,7500.0,7500.0
+"Internet of Things, Waste Management",1,6000.0,6000.0,6000.0
+"Education, Information Technology, Internet, Mobile, Software",1,1200.0,1200.0,1200.0
+"Digital Marketing, SEM, SEO, Web Development",1,1200.0,1200.0,1200.0
+"Automotive, Electric Vehicle, Energy Storage",1,720.0,720.0,720.0

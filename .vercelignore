@@ -1,0 +1,21 @@
+# Streamlit UI (app.py) cannot run on Vercel's serverless runtime;
+# deploy it with the repo's render.yaml instead.
+dashboard/
+images/
+Files/
+tests/
+notebooks/
+__pycache__/
+*.ipynb
+Dockerfile
+docker-compose.yml
+render.yaml
+model_training.log
+training_results.json
+app.py
+eda_cleaning.py
+train_models.py
+README.md
+SECURITY.md
+requirements-dev.txt
+pyproject.toml
