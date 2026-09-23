@@ -123,6 +123,14 @@ included [`render.yaml`](render.yaml) blueprint fixes that.
 
 Alternatively deploy as a **Docker** service using the repo `Dockerfile`.
 
+### Vercel (API only)
+
+`api/index.py` exposes the same predictors as a FastAPI serverless app
+(`GET /health`, `POST /predict/startup`, `POST /classify/industry`) — import
+this repo in Vercel and it deploys automatically via `vercel.json`. Set
+`API_KEY` in Vercel to require the `X-API-Key` header. The Streamlit UI
+cannot run on Vercel; deploy it with the Render blueprint above.
+
 ## Optional Gemini Assistant
 
 The core app does not require an API key. To enable the assistant page:
