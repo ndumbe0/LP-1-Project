@@ -1,18 +1,16 @@
-# Render blueprint — Streamlit apps are NOT gunicorn-compatible, so the
-# start command must be explicit or Render's Python auto-detect fails with
-# "app.py does not export a top-level app/application/handler".
+# Render blueprint — deploys via the repo Dockerfile, whose CMD already runs
+# `streamlit run app.py --server.port=8501 --server.address=0.0.0.0`.
+# The image/Docker runtime never runs Render's Python auto-detect, so the
+# "app.py does not export a top-level app" error cannot occur — this works
+# even for plain Web Services created with Environment = Docker.
 services:
   - type: web
     name: lp1-startup-funding-analyzer
-    runtime: python
+    runtime: image
+    image:
+      path: ./Dockerfile
     plan: free
-    buildCommand: pip install -r requirements.txt
-    startCommand: streamlit run app.py --server.port=$PORT --server.address=0.0.0.0
     healthCheckPath: /_stcore/health
     envVars:
-      - key: PYTHON_VERSION
-        value: 3.12.7
-      - key: PYTHONUNBUFFERED
-        value: "1"
       - key: GOOGLE_AI_API_KEY # set the real value in the Render dashboard
         sync: false

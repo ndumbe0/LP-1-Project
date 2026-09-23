@@ -111,17 +111,25 @@ Open `http://localhost:8501`. The container regenerates clean data and models at
 
 ## Deploying on Render
 
-This is a Streamlit app, not a gunicorn/WSGI app, so Render's Python
-auto-detect fails with *"app.py does not export a top-level app"*. The
-included [`render.yaml`](render.yaml) blueprint fixes that.
+This is a Streamlit app, not a gunicorn/WSGI app, so Render's *Python*
+auto-detect fails with *"app.py does not export a top-level app"*. The repo's
+[`render.yaml`](render.yaml) now deploys through the **Docker runtime**
+(builds the repo `Dockerfile`, which runs Streamlit correctly), so the
+auto-detect path never triggers.
 
-1. Push this repo to GitHub and in Render choose **New → Blueprint**.
-2. Render reads `render.yaml` automatically (build: `pip install -r
-   requirements.txt`, start: `streamlit run app.py --server.port=$PORT`).
-3. In the service's Environment tab set `GOOGLE_AI_API_KEY` (only needed for
+**Fresh deploy (recommended):**
+1. In Render choose **New → Blueprint** and pick this repo — `render.yaml`
+   is applied automatically.
+2. In the service's Environment tab set `GOOGLE_AI_API_KEY` (only needed for
    the AI assistant page).
 
-Alternatively deploy as a **Docker** service using the repo `Dockerfile`.
+**If you already created the service as a plain Web Service** and see the
+"does not export a top-level app" error, do either of:
+- Settings → **Language** → switch to **Docker** (Render then uses the
+  repo `Dockerfile`), save and **Manual Deploy → Deploy Latest Commit**; or
+- Settings → set **Build Command** to `pip install -r requirements.txt` and
+  **Start Command** to `streamlit run app.py --server.port=$PORT
+  --server.address=0.0.0.0`.
 
 ### Vercel (API only)
 
